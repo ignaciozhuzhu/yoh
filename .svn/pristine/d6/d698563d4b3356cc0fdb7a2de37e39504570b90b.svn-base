@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <title>挂号列表</title>
+</head>
+
+<body>
+    <div id=app></div>
+    <script src="../js/lib/jq-sh-bt.js "></script>
+    <script src="../js/reservation_center.js" charset="utf-8"></script>
+</body>
+
+</html>

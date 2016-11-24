@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <link href="../css/jquery.spinner.css" rel="stylesheet" />
+    <title>确认订单</title>
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="topMainBox">
+    </nav>
+    <!-- Begin page content -->
+    <div class="container content-middle">
+        <div class="row">
+            <div class="col-sm-3" id="leftMainBox">
+            </div>
+            <div class="col-sm-9" id="loading_end">
+                <div class="bmargin1">
+                    <div>
+                        <div class="page-title">确认订单</div>
+                    </div>
+                </div>
+                <div id="paylistbox"></div>
+                <li class="row no-lborder text-center no-rborder fontWeight700 padding03 padding5_8 margin-top--20">
+                    <span class="col-sm-2">合计栏</span>                
+                    <span class="col-sm-1 width10P"></span>     
+                    <span class="col-sm-3"></span>
+                    <span class="col-sm-1 width10P" id="totalSum">¥ 0.00</span>     
+                    <span class="col-sm-1 width10P"></span>                
+                    <span class="col-sm-1 width10P"></span>               
+                    <span class="col-sm-1 width10P text-align-left" id="totalDisSum">¥ 0.00</span>
+                </li>
+                <form class="form-horizontal bmargin5">
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label label_text_left">医嘱备注：</label>
+                    <div class="col-sm-10">
+                      <textarea rows="3" class="form-control" id="inputAdvice" placeholder="医嘱备注"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label label_text_left">本单优惠：</label>
+                    <div class="col-sm-10" id="inputPrivilegeDiv">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control hide" id="inputPrivilege" placeholder="请输入优惠额度(%)" >
+                    </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+     <div class="gouwuche">
+        <div class="container">
+            <div class=row>
+                <div class="col-sm-offset-3 col-sm-9 col-xs-12 ">
+                    <div class="panel panel-default bmargin0">
+                        <div class="panel-body" style="line-height:34px;">
+<!--                             <span>原总价：</span>
+                            <span class="rmargin" id="totalSum">¥ 0.00</span>
+                            <span>折后总价：</span>
+                            <span class="rmargin" id="totalDisSum">¥ 0.00</span> -->
+                            <span>优惠后金额：</span>
+                            <span id="discountSum">¥ 0.00</span>
+                            <span class="pull-right"><button type="button" class="btn btn-default" id="saveClick">确认</button></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="loading">
+        <div class="loading_box">
+            <div class="spinner">
+              <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <script src="../js/lib/jq-sh-bt.js " ></script>
+        <script src="../js/lib/spinner/jquery.spinner.js"></script>
+        <script src="../js/pay_second.js"></script>
+    </footer>
+
+</body>
+
+</html>

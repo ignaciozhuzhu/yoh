@@ -1,0 +1,22 @@
+﻿bookingID  挂号id
+doctorID   医生id
+doctorname 医生名字
+serviceIDs 订单服务项的(id,num,title,price)列表
+servicesList 订单服务项目（id,num,title,price,unit）列表
+patientname 病人名称
+patientID   病人ID
+patientmobile 病人联系电话
+jobID  职位ID
+dd_doctorid 简历的医生id
+
+sum 应收总价
+discount 折后总价
+orderID  订单id
+orderNum  订单编号
+userName  登入用户名
+userMobile 登入手机号
+
+startdate 起始日期
+enddate 终止日期
+doctormobile 医生电话
+title 职位名称

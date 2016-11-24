@@ -1,0 +1,221 @@
+'use strict';
+import React from 'react';
+import {
+	serviceurl
+} from '../../lib/common.js';
+import {
+	PagingPN
+} from '../Paging.js'
+var SelectClientBox = React.createClass({
+	render: function() {
+		return (
+			<div id="modalbox" className="modal fade modal-select" tabIndex="-1" role="dialog" aria-labelledby="modal-select" aria-hidden="true" onClick={this.close}>
+			  	<div className="modal-dialog modal-lg">
+			    	<div className="modal-content patientbox">
+				      	<div className="modal-header">
+				        	<button type="button" className="close" data-dismiss="modal" onClick={this.closeTab}>
+				        		<span aria-hidden="true">&times;</span>
+				        	</button>
+				        	<h4 className="modal-title">选择患者</h4>
+				      	</div>
+				      	<div className="modal-body">
+				        	<SearchBox />
+				      	</div>
+				      	<div className="modal-footer"></div>
+				    </div>
+			  	</div>
+			</div>
+		);
+	},
+	closeTab: function(e) {
+		$(".mask-div").css({
+			"z-index": 1040
+		})
+	},
+	close: function(e) {
+		if (e.target.className == "modal fade modal-select") {
+			$(".mask-div").css({
+				"z-index": 1040
+			})
+		}
+	}
+});
+var SearchBox = React.createClass({
+	getInitialState: function() {
+		return {
+			arrPatient: null,
+			currentPage: 1,
+			count: 0,
+			totalPage: 10
+		};
+	},
+	prevClick: function() {
+		let Page = this.state.currentPage - 1;
+		this.setData(Page);
+	},
+	nextClick: function() {
+		let Page = this.state.currentPage + 1;
+		this.setData(Page);
+	},
+	popcount: function(count) {
+		this.setState({
+			count: count
+		});
+	},
+	setData: function(Page, val) {
+		var o = this;
+		if (val > 0) {
+			$(".schtype").removeClass("borderbottom");
+			$(".schtype")[val - 1].className = "col-sm-3 schtype text-center borderbottom";
+		}
+		$.ajax({
+			url: serviceurl +
+				"patient/listHosPatientByPage?currentPage=" + Page +
+				"&type=" + (val || 1) +
+				"&keyword=" + $("#patientSch")[0].value +
+				"&doctorid=" + $("#doctorSch").val(),
+			type: 'get',
+			success: function(result) {
+				o.setState({
+					currentPage: Page,
+					arrPatient: result.data,
+					count: result.data.length,
+					totalPage: result.map.page.totalPage
+				});
+				$("#totalCount").empty().append("共有" + result.map.page.totalCount + "条记录");
+			}
+		})
+	},
+	render: function() {
+		return (
+			<div className="panel panel-default no-border">
+			  	<div className="panel-body">
+			  		<form role="form">
+					  	<div className="form-group col-sm-5">
+					    	<label htmlFor="patientSch">患者</label>
+					    	<input type="text" className="form-control" id="patientSch" placeholder="病历号/姓名/手机号" />
+					  	</div>
+					  	<div className="form-group col-sm-3">
+					    	<label htmlFor="patientSch">医生</label>
+					    	<DocListSelect />
+					  	</div>
+					  	<div className="form-group col-sm-2">
+					  		<label htmlFor="patientSch" className="sr-only">查询</label>
+					    	<button type="button" className="btn btn-default" onClick={this.setData.bind(null,1,1)} style={{marginTop:"28px"}} >查询</button>
+					  	</div>
+					  	<div className="form-group col-sm-2" style={{marginTop:"28px"}} id="totalCount"></div>
+					</form>
+			  	</div>
+
+			  	<div className="panel-body">
+			    	<div className="col-sm-3 schtype text-center" onClick={this.setData.bind(null,1,1)}>全部</div>
+					<div className="col-sm-3 schtype text-center" onClick={this.setData.bind(null,1,2)}>最新患者</div>
+					<div className="col-sm-3 schtype text-center" onClick={this.setData.bind(null,1,3)}>最新就诊</div>
+					<div className="col-sm-3 schtype text-center" onClick={this.setData.bind(null,1,4)}>重要患者</div>
+			  	</div>
+
+			  	<table className="table table-striped table-hover">
+					<Comment getData={this.state.arrPatient} popcount={this.popcount} />
+			  	</table>
+				<PagingPN prevClick={this.prevClick} nextClick={this.nextClick} 
+				page={this.state.currentPage} count={this.state.count}  totalPage={this.state.totalPage}  />
+			</div>
+		)
+	}
+})
+
+//医生下拉选择框
+var DocListSelect = React.createClass({
+	getInitialState: function() {
+		return {
+			arrDocList: null
+		};
+	},
+	componentDidMount: function() {
+		this.serverRequest = $.get(serviceurl + "hospital/listHosDoctor", function(result) {
+			this.setState({
+				arrDocList: result.data
+			});
+		}.bind(this));
+	},
+	render: function() {
+		if (this.state.arrDocList) {
+			var List = this.state.arrDocList.map(function(item) {
+				return (
+					<option key={item.doctorid} value={item.doctorid}>{item.doctorname}</option>
+				)
+			})
+			return (
+				<select id="doctorSch" className="form-control" onChange={this.ChangeHandle}> 
+				    <option value="">全部医生</option>
+					   {List}
+				    </select>)
+		}
+		return <div>正在加载...</div>;
+	}
+})
+
+var Comment = React.createClass({
+	getInitialState: function() {
+		return {
+			arrPatient: null
+		};
+	},
+	componentDidMount: function() {
+		this.serverRequest = $.get(serviceurl + "patient/listHosPatientByPage?currentPage=1", function(result) {
+			this.setState({
+				arrPatient: result.data
+			});
+			this.props.popcount(result.data.length)
+		}.bind(this));
+	},
+	componentWillReceiveProps(nextProps) {
+		this.setState({
+			arrPatient: nextProps.getData || this.state.arrPatient
+		});
+	},
+	render: function() {
+		var o = this;
+		if (this.state.arrPatient) {
+			var List = this.state.arrPatient.map(function(item) {
+				var id = item.patientid + item.doctorname || "" + arguments[1];
+				let important = "";
+				if (item.important == "1") {
+					important = "★";
+				}
+				return (
+					<tr key={id} onClick={o.HandleClick.bind(null,item.fullname,item.patientid)}>
+						<td className="content" ><span className="sub_det_important">{important}</span>{item.fullname}</td>
+						<td className="content" >{item.anamnesisno}</td>
+						<td className="content" >{item.mobile}</td>
+						<td className="content" >{item.lasttime}</td>
+						<td className="content" >{item.doctorname}</td>
+					</tr>)
+			})
+			return (
+				<tbody>
+					<tr>
+						<td>患者姓名</td>
+						<td>病历号</td>
+						<td>电话</td>
+						<td>最近就诊日期</td>
+						<td>医生</td>
+				    </tr>
+					{List}
+				</tbody>
+			)
+		}
+		return (<tbody><tr><td>正在加载...</td></tr></tbody>);
+	},
+	HandleClick: function(name, id) {
+		$("#modalbox").modal("hide");
+		$(".mask-div").css({
+			"z-index": 1040
+		})
+		$("#name").val(name);
+	}
+});
+
+export {
+	SelectClientBox
+};

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/daterangepicker-bs3.css" />
+    <link href="../css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/react-datepicker.css" />
+    <link href="../img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <title>排班管理</title>
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="topMainBox">
+    </nav>
+    <!-- Begin page content -->
+    <div class="container content-middle">
+        <div class="row">
+            <div class="col-sm-3" id="leftMainBox">
+            </div>
+            <div class="col-sm-9" id="loading_end">
+                <div class="bmargin1">
+                    <div class="overflow-hidden">
+                        <div class="page-title col-sm-8">排班管理</div>
+                        <div id ="switchBoxDiv"></div>
+                        <div class="mask"></div>
+                    </div>
+                </div>
+                <!-- Table -->
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <div class='row'>
+                                <div class='col-xs-6'>
+                                    <label for="input" class="control-label">开始日期</label>
+                                    <span id="startDate"></span>
+                                </div>
+                                <div class="col-xs-6">
+                                    <label class="control-label">营业时间</label>
+                                    <div>
+                                        <span id="worktime-morning">上午</span>
+                                        <span id="worktime-afternoon">下午</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="laybox">
+                    <div class="scheduling-table">
+                        <div class="scheduling-table-date" id="scheduling-table-date">
+                            <ul id="ul">
+                                <li>日期</li>
+                            </ul>
+                            <ul id="dataWorkTime"></ul>
+                        </div>
+                        <div id="docWorkTime">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="loading">
+            <div class="loading_box">
+                <div class="spinner">
+                    <div class="spinner-container container1">
+                        <div class="circle1"></div>
+                        <div class="circle2"></div>
+                        <div class="circle3"></div>
+                        <div class="circle4"></div>
+                    </div>
+                    <div class="spinner-container container2">
+                        <div class="circle1"></div>
+                        <div class="circle2"></div>
+                        <div class="circle3"></div>
+                        <div class="circle4"></div>
+                    </div>
+                    <div class="spinner-container container3">
+                        <div class="circle1"></div>
+                        <div class="circle2"></div>
+                        <div class="circle3"></div>
+                        <div class="circle4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <script src="../js/lib/jq-sh-bt.js "></script>
+            <script src="../js/scheduling.js"></script>
+        </footer>
+</body>
+
+</html>

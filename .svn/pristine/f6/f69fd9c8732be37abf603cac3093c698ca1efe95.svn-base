@@ -1,0 +1,475 @@
+﻿//配置本地反向代理文件夹所在路径
+const DIST = '../../client_html/branch/nginx-1.10.1/';
+// 引入 gulp
+var gulp = require('gulp');
+
+// 引入组件
+// html
+var htmlhint = require('gulp-htmlhint');
+var htmlmin = require('gulp-htmlmin');
+
+var less = require('gulp-less');
+var mincss = require('gulp-minify-css');
+
+var imagemin = require('gulp-imagemin');
+
+var jshint = require('gulp-jshint');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
+var clean = require('gulp-clean');
+var sequence = require('gulp-sequence');
+
+var webpack = require("webpack");
+var gulpWebpack = require('gulp-webpack');
+var webpackConfig = require('./webpack.config');
+
+var tar = require('gulp-tar');
+var gzip = require('gulp-gzip');
+var ssh = require('gulp-ssh');
+
+var date = new Date();
+
+// HTML处理
+gulp.task('html', function() {
+
+    var src = [
+        "./src/**/*.html",
+        "./src/**/*.htm"
+    ];
+    var options = {
+        removeComments: true, //清除HTML注释
+        collapseWhitespace: true, //压缩HTML
+        collapseBooleanAttributes: true, //省略布尔属性的值 <input checked="true"/> ==> <input />
+        removeEmptyAttributes: true, //删除所有空格作属性值 <input id="" /> ==> <input />
+        removeScriptTypeAttributes: true, //删除<script>的type="text/javascript"
+        removeStyleLinkTypeAttributes: true, //删除<style>和<link>的type="text/css"
+        minifyJS: true, //压缩页面JS
+        minifyCSS: true //压缩页面CSS
+    };
+
+    switch (process.env.NODE_ENV) {
+        case "production":
+        case "test":
+
+            return gulp.src(src)
+                .pipe(htmlhint())
+                .pipe(htmlmin(options))
+                .pipe(gulp.dest('./dist/'));
+        case "development":
+        default:
+
+            return gulp.src(src)
+                // .pipe(htmlhint())
+                // .pipe(htmlmin(options))
+                .pipe(gulp.dest(DIST + 'dist/'));
+    }
+
+});
+
+// 样式处理
+gulp.task('less', function() {
+
+    var src = [
+        './src/**/*.less'
+    ];
+
+    switch (process.env.NODE_ENV) {
+        case "production":
+        case "test":
+
+            return gulp.src(src)
+                .pipe(less())
+                .pipe(mincss())
+                .pipe(gulp.dest('./dist'));
+        case "development":
+        default:
+
+            return gulp.src(src)
+                .pipe(less())
+                //.pipe(mincss())
+                .pipe(gulp.dest(DIST + 'dist'));
+    }
+
+});
+
+gulp.task('css', function() {
+
+    var src = [
+        './src/**/*.css'
+    ];
+
+    switch (process.env.NODE_ENV) {
+        case "production":
+        case "test":
+
+            return gulp.src(src)
+                .pipe(mincss())
+                //.pipe(rename({ suffix: '.min' }))
+                .pipe(gulp.dest('./dist'));
+        case "development":
+        default:
+
+            return gulp.src(src)
+                //.pipe(mincss())
+                //.pipe(rename({ suffix: '.min' }))
+                .pipe(gulp.dest(DIST + 'dist'));
+    }
+
+});
+
+// 拼接css+less
+gulp.task('cssconcat', function() {
+
+    var src0 = [
+        "./dist/css/main.css",
+        "./dist/css/star-five.css"
+    ];
+    var src1 = [
+        DIST + "dist/css/main.css",
+        DIST + "dist/css/star-five.css"
+    ];
+
+    switch (process.env.NODE_ENV) {
+        case "production":
+        case "test":
+            return gulp
+                .src(src0, {
+                    base: './src'
+                })
+                .pipe(concat('main.css'))
+                .pipe(gulp.dest('./dist/css'));
+        case "development":
+        default:
+            return gulp
+                .src(src1, {
+                    base: './src'
+                })
+                .pipe(concat('main.css'))
+                .pipe(gulp.dest(DIST + 'dist/css'));
+    }
+
+});
+
+// 图片处理
+gulp.task('image', function() {
+
+    var src = [
+        './src/**/*.{gif,jpeg,jpg,png,ico}'
+    ];
+
+    switch (process.env.NODE_ENV) {
+        case "production":
+        case "test":
+            return gulp.src(src)
+                .pipe(imagemin())
+                .pipe(gulp.dest('./dist'));
+        case "development":
+        default:
+            return gulp.src(src)
+                // .pipe(imagemin())
+                .pipe(gulp.dest(DIST + 'dist'));
+    }
+})
+
+// 脚本处理
+// webpack
+gulp.task("webpack", function() {
+    var src = [
+        './'
+    ];
+    var webpackEnv = {};
+    switch (process.env.NODE_ENV) {
+        case "production":
+            webpackEnv = {
+                // This has effect on the react lib size 
+                "NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+                "API_URL": JSON.stringify("https://zs.yayi365.cn/ya/"),
+                "IP_URL": JSON.stringify("https://zs.yayi365.cn/html/"),
+                "SUHU_URL": JSON.stringify("https://pv.sohu.com/cityjson")
+            }
+            break;
+
+        case "test":
+            webpackEnv = {
+                "NODE_ENV": JSON.stringify("test"), // react has no option: test. (只是reat不能压缩)
+                "API_URL": JSON.stringify("https://zs1.yayi365.cn/ya/"),
+                "IP_URL": JSON.stringify("https://zs1.yayi365.cn/html/"),
+                "SUHU_URL": JSON.stringify("https://pv.sohu.com/cityjson")
+            }
+            break;
+
+        case "development":
+        default:
+            webpackEnv = {
+                "NODE_ENV": JSON.stringify(process.env.NODE_ENV), // react has no option: test. 
+                "API_URL": JSON.stringify("http://127.0.0.1/yayi/ya/"),
+                "IP_URL": JSON.stringify("http://127.0.0.1/html/"),
+                "SUHU_URL": JSON.stringify("https://pv.sohu.com/cityjson")
+            }
+            break;
+    }
+
+    var myConfig = Object.create(webpackConfig);
+    myConfig.plugins = myConfig.plugins.concat(
+        new webpack.DefinePlugin({
+            "process.env": webpackEnv
+        })
+    );
+
+    switch (process.env.NODE_ENV) {
+        case "production":
+        case "test":
+            return gulp
+                .src(src)
+                .pipe(gulpWebpack(myConfig))
+                .pipe(uglify())
+                .pipe(gulp.dest('./dist'));
+        case "development":
+        default:
+            return gulp
+                .src(src)
+                .pipe(gulpWebpack(myConfig))
+                // .pipe(uglify())
+                .pipe(gulp.dest(DIST + 'dist'));
+    }
+
+});
+
+gulp.task("concat", function() {
+    var src0 = [
+        "./src/js/lib/jquery.min.js",
+        "./dist/js/lib/share.js",
+        "./src/js/lib/bootstrap.min.js"
+    ];
+    var src1 = [
+        "./src/js/lib/jquery.min.js",
+        DIST + "dist/js/lib/share.js",
+        "./src/js/lib/bootstrap.min.js"
+    ];
+    switch (process.env.NODE_ENV) {
+        case "production":
+        case "test":
+            return gulp
+                .src(src0, {
+                    base: './src'
+                })
+                .pipe(concat('jq-sh-bt.js'))
+                .pipe(uglify())
+                .pipe(gulp.dest('./dist/js/lib'));
+        case "development":
+        default:
+            return gulp
+                .src(src1, {
+                    base: './src'
+                })
+                .pipe(concat('jq-sh-bt.js'))
+                //.pipe(uglify())
+                .pipe(gulp.dest(DIST + 'dist/js/lib'));
+    }
+})
+
+gulp.task("js", function() {
+    var src = [
+        "./src/js/lib/jquery*.js", // jquery.form.js, jquery-1.12.0.min.js
+        "./src/js/lib/bootstrap.min.js",
+        "./src/js/lib/browser.min.js",
+        "./src/js/lib/fileInputJS/fileinput.js",
+        "./src/js/lib/fileInputJS/fileinput_locale_zh.js",
+        "./src/js/lib/dateJS/daterangepicker.js",
+        "./src/js/lib/dateJS/main.js",
+        "./src/js/lib/dateJS/require.js",
+        "./src/js/lib/dateJS/moment.min.js",
+        "./src/js/lib/dateJS/package.js",
+        "./src/js/lib/spinner/jquery.spinner.js"
+    ];
+
+    switch (process.env.NODE_ENV) {
+        case "production":
+        case "test":
+
+            return gulp
+                .src(src, {
+                    base: './src'
+                })
+                .pipe(uglify())
+                .pipe(gulp.dest('./dist/'));
+        case "development":
+        default:
+
+            return gulp
+                .src(src, {
+                    base: './src'
+                })
+                // .pipe(uglify())
+                .pipe(gulp.dest(DIST + 'dist/'));
+
+    }
+
+});
+
+// copy输出到dist
+gulp.task('dist', function() {
+
+    var src = [
+        "./src/fonts/**/*",
+    ];
+
+    switch (process.env.NODE_ENV) {
+        case "production":
+        case "test":
+
+            return gulp.src(src, {
+                    base: './src'
+                })
+                .pipe(gulp.dest('./dist'));
+        case "development":
+        default:
+
+            return gulp.src(src, {
+                    base: './src'
+                })
+                .pipe(gulp.dest(DIST + 'dist'));
+
+    }
+
+});
+
+// 清理
+gulp.task('clean', function() {
+    switch (process.env.NODE_ENV) {
+        case "production":
+        case "test":
+            return gulp.src([
+                "./dist",
+                "./publish"
+            ]).pipe(clean());
+        case "development":
+        default:
+            return gulp.src([
+                DIST + "dist"
+            ]).pipe(clean({
+                force: true
+            }));
+    }
+});
+
+// watch 
+gulp.task('watch', function() {
+    gulp.watch('./src/**/*.js', function() {
+        gulp.run('webpack', 'js');
+    });
+});
+
+// 默认build dev
+gulp.task('default', sequence("dev"));
+
+function setEnv(env) {
+    process.env.NODE_ENV = env;
+
+    process.stdout.write("\n*****************************************\n");
+    process.stdout.write("当前环境: " + process.env.NODE_ENV + "\n");
+    process.stdout.write("*****************************************\n\n");
+}
+
+// build dev
+gulp.task('dev', function(callback) {
+    setEnv("development");
+    return sequence('clean', ['html', 'less', 'css', 'image', 'webpack', 'js'], 'dist', 'concat', 'cssconcat')(callback);
+});
+
+// build test
+gulp.task('test', function(callback) {
+    setEnv("test");
+    return sequence('clean', ['html', 'less', 'css', 'image', 'webpack', 'js'], 'dist', 'concat', 'cssconcat')(callback);
+});
+
+// build prod
+gulp.task('prod', function(callback) {
+    setEnv("production");
+    return sequence('clean', ['html', 'less', 'css', 'image', 'webpack', 'js'], 'dist', 'concat', 'cssconcat')(callback);
+});
+
+////////////////////////////////////////////////////
+// 部署
+////////////////////////////////////////////////////
+
+var tarfile = "dist_" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" +
+    date.getDate() + "_" + date.getHours() + "-" + date.getMinutes() + "-" + date.getSeconds();
+var dst_dir = "/yayi/zensuo_qd";
+var nginx_dir = "/usr/share/nginx/html/zs.yayi365.cn";
+
+function tarAndUpload(ssh) {
+    return gulp.src(['./dist/**'], {
+            base: './dist'
+        })
+        .pipe(tar(tarfile + ".tar"))
+        .pipe(gzip())
+        .pipe(gulp.dest('./publish/'))
+        .pipe(ssh.dest(dst_dir));
+}
+
+function shellExe(ssh) {
+    return ssh
+        .shell([
+            'cd ' + dst_dir,
+            "mkdir " + tarfile,
+            "tar xvf " + tarfile + ".tar.gz -C " + tarfile,
+            "ln -sfT " + dst_dir + "/" + tarfile + " " + nginx_dir, // nginx 软连接到最新版本
+        ], {
+            filePath: 'shell.log'
+        })
+        .pipe(gulp.dest('logs'));
+}
+
+////////////// 部署测试版本 /////////////
+
+// 应从配置文件中读入
+var test_config = {
+    // host: '120.27.147.43', //外网
+    host: '10.47.102.154', //内网
+    port: 22,
+    username: 'root',
+    password: '1949+yigu'
+}
+
+var test_ssh = new ssh({
+    ignoreErrors: false,
+    sshConfig: test_config
+})
+
+gulp.task('deploy-test-upload', function() {
+    return tarAndUpload(test_ssh);
+})
+
+gulp.task('deploy-test-shell', function() {
+    return shellExe(test_ssh);
+})
+
+gulp.task('deploy-test', sequence('test', 'deploy-test-upload', 'deploy-test-shell'));
+
+//////////// 部署生产环境 ///////////////
+
+// 应从配置文件中读入
+var prod_config = {
+    // host: '120.27.142.49', //外网 
+    host: '10.47.102.168', //内网
+    port: 22,
+    username: 'root',
+    password: '2015+yigukeji'
+}
+
+var prod_ssh = new ssh({
+    ignoreErrors: false,
+    sshConfig: prod_config
+})
+
+gulp.task('deploy-prod-upload', function() {
+    return tarAndUpload(prod_ssh);
+})
+
+gulp.task('deploy-prod-shell', function() {
+    return shellExe(prod_ssh);
+})
+
+gulp.task('deploy-prod', sequence('prod', 'deploy-prod-upload', 'deploy-prod-shell'));

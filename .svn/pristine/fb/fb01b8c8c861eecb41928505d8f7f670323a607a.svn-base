@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="login">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" type="text/css" media="all" href="../css/daterangepicker-bs3.css" />
+    <link href="../css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" media="all" href="../css/daterangepicker.css" />
+    <link href="../img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+
+    <title>牙艺-登录</title>
+</head>
+
+<body class="bodybg">
+
+    <!-- Begin page content -->
+    <div class="container content-middle ">
+        <div class="row">
+            <div class="modal fade dialog-box in show " id="LogUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+              <div class="modal-dialog login-bg" role="document">
+                <div class="modal-content col-sm-4 login-img hidden-xs">
+                    <div class="modal-body">
+                      <!-- 弹出框表格-->
+                        <div class="form-group">
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-content col-sm-8 login-box">
+                    <div class="modal-header text-center no-border">
+                      <img src="../img/yayi-logo.png" class="rmargin1 img login-logo"/>
+                      <span class="modal-title login-name img-text" id="myModalLabel">牙艺诊所管理V1.0</span>
+                    </div>
+                    <div class="modal-body login-form">
+                      <!-- 弹出框表格-->
+                        <div class="form-group">
+                            <input type="telephone" class="form-control login-input" id="inputMobile" placeholder="请输入手机账号"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control login-input" id="inputPWD" placeholder="请输入6-16位的登录密码"/>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="button" class="btn btn-primary btn-block loginbg-color border-ddd" id="loginBtn">登录</button>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="button" class="btn btn-default btn-block" data-toggle="modal" data-target="#ResUser">注册</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container content-middle">
+        <div class="row">
+            <div class="modal fade dialog-box" id="ResUser" tabindex="-1" role="dialog" aria-labelledby="ResUser" >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title text-center" >欢迎申请牙艺云诊所账号</h4>
+                  </div>
+                  <div class="modal-body">
+                    <!-- 弹出框表格-->
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="clinicName" placeholder="诊所名称"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="clinicAddress" placeholder="诊所地址"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="telephone" class="form-control" id="clinicTelephone" placeholder="诊所电话，如：010-*******"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="clinicFullname" placeholder="联系人姓名"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="telephone" class="form-control" id="clinicMobile" placeholder="联系人电话"/>
+                        </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="saveBtn">注册</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <script src="../js/lib/jq-sh-bt.js" ></script>
+        <script src="../js/login.js" ></script>
+    </footer>
+
+</body>
+
+</html>

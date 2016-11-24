@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../css/fileInput/default.css">
+    <link href="../css/fileInput/fileinput.css" media="all" rel="stylesheet" type="text/css" /> 
+    
+    <link rel="stylesheet" type="text/css" media="all" href="../css/daterangepicker-bs3.css" />
+    <link href="../css/main.css" rel="stylesheet" /> 
+    <link href="../img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+
+    <title>投递列表</title>
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+   <div id="app"></div>
+    <footer class="footer">
+        <script src="../js/lib/jq-sh-bt.js " ></script>
+        <script src="../js/dd_job.js" ></script>
+    </footer>
+
+</body>
+
+</html>

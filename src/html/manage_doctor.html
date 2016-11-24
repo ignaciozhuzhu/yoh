@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" type="text/css" media="all" href="../css/daterangepicker-bs3.css" />
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <title>医生管理</title>
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="topMainBox">
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container content-middle">
+        <div class="row">
+            <div class="col-sm-3" id="leftMainBox">
+            </div>
+
+            <div class="col-sm-9" id="content">
+                
+        </div>
+    </div>
+
+     <!-- Modal -->
+    <div class="modal fade dialog-box" id="addDoc" tabindex="-1" role="dialog" aria-labelledby="addDoc" >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="addDocLabel">温馨提醒</h4>
+          </div>
+          <div class="modal-body">
+            <!-- 弹出框表格-->
+                <div class="form-group">
+                    <p class="text-center">请联系牙艺客服申请认证</p>
+                    <p class="text-center">联系电话：0571-81182533</p>
+                </div>                
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary managebg-color border-ddd" data-dismiss="modal">确定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="loading">
+        <div class="loading_box">
+            <div class="spinner">
+              <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <script src="../js/lib/jq-sh-bt.js " ></script>
+        <script src="../js/manage_doctor.js" ></script>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <title>订单详情</title>
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="topMainBox">
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container content-middle">
+        <div class="row">
+            <div class="col-sm-3" id="leftMainBox">
+            </div>
+
+            <div class="col-sm-9" id="loading_end">
+
+                <div class="bmargin1">
+                    <div>
+                        <div class="page-title">订单详情</div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-success" role="alert" id="alert_box">
+                    <i class="glyphicon glyphicon-ok-circle"></i>
+                    <span id="pay-method"></span>支付成功！
+                </div>
+
+                <div class="panel panel-default" id="containBox">
+                </div>
+                
+                <div class="panel panel-default no-border">
+                    <div class="list-group row">
+                        <div class="list-group-item no-border tpadding0 bpadding0 text-right">
+                            <span>原总价：</span>
+                            <span id="totalSum">0.00</span>
+                        </div>
+                        <div class="list-group-item no-border tpadding0 bpadding0 text-right">
+                            <span>折后总价：</span>
+                            <span id="totalDisSum">0.00</span>
+                        </div>
+                        <div class="list-group-item no-border tpadding0 bpadding0 text-right">   
+                            <span>优惠后金额：</span>
+                            <span id="discountSum">0.00</span>
+                        </div>
+
+                        <div class="list-group-item no-border">  
+                            <form class="form-horizontal">
+                              <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-labe label_text_left">处置备注：</label>
+                                <div class="col-sm-10 pay-last-ordercontent" id="ordercontent">无
+                                </div>
+                              </div>
+                            </form> 
+                        </div>
+                        
+                        <div class="list-group-item no-border" id="payFor_online">  
+                            <form class="form-horizontal">
+                              <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label label_text_left">线上支付：</label>
+                                <div class="col-sm-10 pay-last-ordercontent"></div>
+                              </div>
+                            </form> 
+                            <div class="row">
+                                <div class="col-sm-6 text-center">
+                                    <div id="aliPay" class="pay-img"></div>
+                                    <div>
+                                        <img src="../img/ic_pay_alipay.png" class="ma-img" />支付宝扫码付款
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-sm-6 text-center">
+                                    <div id="weixinPay" class="pay-img"></div>
+                                    <div>
+                                        <img src="../img/ic_pay_wechat.png" class="ma-img" />微信扫码付款
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="list-group-item no-border" id="payFor_offline">  
+                            <form class="form-horizontal">
+                              <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-2 control-label label_text_left">线下支付：</label>
+                                <div class="col-sm-10">
+                                    <label class="radio-inline col-xs-4" id="pay_card">
+                                      <input type="radio" name="pay_offline" id="pay_offline1" value="4">银行卡支付
+                                    </label>
+                                    <label class="radio-inline col-xs-4" id="pay_money">
+                                      <input type="radio" name="pay_offline" id="pay_offline2" value="5">现金支付
+                                    </label>
+                                </div>
+                              </div>
+
+                              <div class="form-group pay_card_box" id="pay_card_box">
+                                <label for="inputEmail3" class="col-sm-2 control-label"></label>
+                                <div class="col-sm-10">
+                                  <input type="number" class="form-control" id="card_num" placeholder="银行卡卡号">
+                                </div>
+                              </div>
+
+                              <button type="button" class="btn btn-default pull-right pay_confirm" id="pay_confirm">确认收款</button>
+                            </form> 
+                        </div>
+
+                    </div>
+
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container" id="loading">
+        <div class="loading_box">
+            <div class="spinner">
+              <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <script src="../js/lib/jq-sh-bt.js " ></script>
+        <script src="../js/lib/jquery.qrcode.min.js"></script>
+        <script src="../js/pay_last.js" ></script>
+    </footer>
+
+</body>
+
+</html>

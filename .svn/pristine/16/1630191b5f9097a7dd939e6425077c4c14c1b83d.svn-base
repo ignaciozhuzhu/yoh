@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../css/fileInput/default.css">
+    <link href="../css/fileInput/fileinput.css" media="all" rel="stylesheet" type="text/css" /> 
+    
+    <link rel="stylesheet" type="text/css" media="all" href="../css/daterangepicker-bs3.css" />
+    <link href="../css/main.css" rel="stylesheet" /> 
+    <link href="../img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+
+    <title>医院信息</title>
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="topMainBox">
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container content-middle">
+        <div class="row">
+            <div class="col-sm-3" id="leftMainBox">
+            </div>
+
+            <div class="col-sm-9" id="loading_end">
+                <div class="bmargin1">
+                    <div>
+                        <div class="btn-group pull-right " role="group" aria-label="...">
+                            <button type="button" class="btn btn-primary managebg-color border-ddd" data-toggle="modal" data-target="#UpdateHos" id="updateHos">修改</button>
+                        </div>
+
+                        <div class="page-title">医院信息</div>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="panel panel-default no-border">
+                    <form class="form-horizontal" name="addDocForm" action="" enctype="multipart/form-data" method="post" id="formid">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">医院名称</label>
+                            <div class="col-sm-10">
+                              <p class="form-control-static" id="hospitalname"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">电话</label>
+                            <div class="col-sm-10">
+                              <p class="form-control-static" id="hospitalmobile"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">医院级别</label>
+                            <div class="col-sm-10">
+                              <p class="form-control-static">
+                                  <span id="level"></span>&nbsp;&nbsp;
+                                  <span id="grade"></span>
+                              </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">认证状态</label>
+                            <div class="col-sm-10">
+                              <p class="form-control-static" id="V"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">地址</label>
+                            <div class="col-sm-10">
+                              <p class="form-control-static" id="hospitaladdress"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">邮编</label>
+                            <div class="col-sm-10">
+                              <p class="form-control-static" id="zipcode"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">营业时间</label>
+                            <div class="col-sm-10">
+                              <p class="form-control-static" id="worktime"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">简介</label>
+                            <div class="col-sm-10">
+                              <p class="form-control-static" id="brief"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade dialog-box" id="UpdateHos" tabindex="-1" role="dialog" aria-labelledby="UpdateHos" >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="UpdateHosLabel">温馨提醒</h4>
+          </div>
+          <div class="modal-body">
+            <!-- 弹出框表格-->
+                <div class="form-group">
+                    <p class="text-center">请联系牙艺客服申请修改</p>
+                    <p class="text-center">联系电话：0571-81182533</p>
+                </div>                
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary managebg-color border-ddd" data-dismiss="modal">确定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="loading">
+        <div class="loading_box">
+            <div class="spinner">
+              <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+
+        <script src="../js/lib/jq-sh-bt.js " ></script>
+        
+        <script src="../js/lib/fileInputJS/fileinput.js" type="text/javascript"></script>
+        <script src="../js/lib/fileInputJS//fileinput_locale_zh.js" type="text/javascript"></script>
+        <script src="../js/lib/jquery.form.js"></script>
+        <script src="../js/manage_clinic.js" ></script>
+
+    </footer>
+
+</body>
+
+</html>

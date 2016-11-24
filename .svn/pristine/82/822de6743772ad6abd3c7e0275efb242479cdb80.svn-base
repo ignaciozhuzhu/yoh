@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="../css/fileInput/default.css" />
+    <link href="../css/fileInput/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" type="text/css" media="all" href="../css/daterangepicker-bs3.css" />
+    <link href="../css/main.css" rel="stylesheet" />
+    <link href="../img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+
+    <title>收费项目</title>
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="topMainBox">
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container content-middle">
+        <div class="row">
+            <div class="col-sm-3" id="leftMainBox">
+    
+            </div>
+
+            <div class="col-sm-9" id="loading_end">
+                <div class="bmargin1">
+                    <div>
+                        <div class="btn-group pull-right " role="group" aria-label="...">
+                            <button type="button" class="btn btn-primary managebg-color border-ddd" data-toggle="modal" data-target="#addFirstTag" id="updateHos">添加分组</button>
+                        </div>
+
+                        <div class="page-title">添加/修改项目</div>
+                    </div>
+                </div>
+                <!-- Table -->
+                <div class="panel panel-default">
+                    <div class="panel-body" id="addtag-list">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade dialog-box" id="addFirstTag" tabindex="-1" role="dialog" aria-labelledby="addFirstTag">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="addFirstTag">添加分组</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="FirstTag" id="FirstTag" placeholder="分组名" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary managebg-color border-ddd" id="addFirst-tag">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade dialog-box" id="addSecTag" tabindex="-1" role="dialog" aria-labelledby="addSecTag">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="addSecTag">添加项目</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="SecTag_title" id="SecTag_title" placeholder="项目名" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="SecTag_price" id="SecTag_price" placeholder="价格" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="SecTag_unit" id="SecTag_unit" placeholder="单位" />
+                    </div>
+                    <div class="form-group">
+                        <textarea row="3" class="form-control" name="SecTag_detail" id="SecTag_detail" placeholder="详情备注"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary managebg-color border-ddd" id="addSecond-tag">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade dialog-box" id="SecTagUpdate" tabindex="-1" role="dialog" aria-labelledby="SecTagUpdate">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="SecTagUpdate">修改项目</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <select class="form-control" id="selectFirstTag">
+                </select>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="UpdateSecTag_title" id="UpdateSecTag_title" placeholder="项目名" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="UpdateSecTag_price" id="UpdateSecTag_price" placeholder="价格" />
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="UpdateSecTag_unit" id="UpdateSecTag_unit" placeholder="单位" />
+                    </div>
+                    <div class="form-group">
+                        <textarea row="3" class="form-control" name="UpdateSecTag_detail" id="UpdateSecTag_detail" placeholder="详情备注"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary managebg-color border-ddd" id="UpdateSecond-tag">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="loading">
+        <div class="loading_box">
+            <div class="spinner">
+              <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+              <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <script src="../js/lib/jq-sh-bt.js" ></script>
+        <script src="../js/lib/jquery.form.js"></script>
+        <script src="../js/manage_addtag.js" ></script>
+    </footer>
+
+    
+</body>
+
+</html>

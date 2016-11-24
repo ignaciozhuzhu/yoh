@@ -1,0 +1,2311 @@
+body {
+    color: #333;
+    font: normal 14px "Microsoft Yahei", Arial, Helvetica, sans-serif;
+    line-height: 1.7em;
+    background-color: #fff;
+}
+
+a {
+    color: #268be2;
+}
+ul,
+li {
+    margin: 0px;
+    padding: 0px;
+    text-align: left;
+    list-style: none;
+}
+
+.brand-primary {
+    color: #428bca;
+}
+
+.brand-success {
+    color: #5cb85c;
+}
+
+.brand-info {
+    color: #5bc0de;
+}
+
+.brand-warning {
+    color: #f0ad4e;
+}
+
+.brand-danger {
+    color: #d9534f;
+}
+
+.bg-primary {
+    background-color: #428bca;
+}
+
+.bg-success {
+    background-color: #5cb85c;
+}
+
+.bg-info {
+    background-color: #5bc0de;
+}
+
+.bg-warning {
+    background-color: #f0ad4e;
+}
+
+.bg-danger {
+    background-color: #d9534f;
+}
+
+.gray-darker {
+    color: #222;
+}
+
+.gray-dark {
+    color: #333;
+}
+
+.gray {
+    color: #555;
+}
+
+.gray-light {
+    color: #999;
+}
+
+.gray-lighter {
+    color: #eee;
+}
+
+.container {
+    max-width: 950px;
+    /*970 - 20, 730 */
+    min-width: 320px;
+    /*320 - 20*/
+}
+
+.footer > .container {
+    max-width: 950px;
+    /*970 - 20, 730 */
+    min-width: 0px;
+    /*320 - 20*/
+}
+
+.vcenter {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.hcenter {
+    text-align: center;
+}
+
+#page {}
+
+#content {
+    overflow: hidden;
+}
+
+footer {
+    padding: 15px;
+    font-size: 0.8em;
+}
+
+.rmargin {
+    margin-right: 10px;
+}
+
+.lmargin {
+    margin-left: 10px;
+}
+
+.margin0 {
+    margin: 0;
+}
+
+.tpadding0 {
+    padding-top: 0;
+}
+
+.tpadding05 {
+    padding-top: 5px;
+}
+
+.tpadding1 {
+    padding-top: 10px;
+}
+
+.tpadding2 {
+    padding-top: 20px;
+}
+
+.tpadding3 {
+    padding-top: 30px;
+}
+
+.tpadding4 {
+    padding-top: 40px;
+}
+
+.tpadding5 {
+    padding-top: 50px;
+}
+
+.bpadding0 {
+    padding-bottom: 0;
+}
+
+.tmargin0 {
+    margin-top: 0;
+}
+
+.tmargin {
+    margin-top: 10px;
+}
+
+.tmargin1 {
+    margin-top: 20px;
+}
+
+.tmargin2 {
+    margin-top: 30px;
+}
+
+.tmargin3 {
+    margin-top: 40px;
+}
+
+.tmargin4 {
+    margin-top: 50px;
+}
+
+.tmargin5 {
+    margin-top: 80px;
+}
+
+.rmargin1 {
+    margin-right: 10px;
+}
+
+.bmargin0 {
+    margin-bottom: 0;
+}
+
+.bmargin {
+    margin-bottom: 10px;
+}
+
+.bmargin1 {
+    margin-bottom: 20px;
+}
+
+.bmargin2 {
+    margin-bottom: 30px;
+}
+
+.bmargin3 {
+    margin-bottom: 40px;
+}
+
+.bmargin4 {
+    margin-bottom: 50px;
+}
+
+.bmargin5 {
+    margin-bottom: 80px;
+}
+
+.no-tborder {
+    border-top: none;
+}
+
+.no-lborder {
+    border-left: none;
+}
+
+.no-rborder {
+    border-right: none;
+}
+
+.no-bborder {
+    border-bottom: none;
+}
+
+.no-border {
+    border: none;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+#logo {
+    padding: 15px 20px;
+    font-size: 200%;
+}
+
+a.link {
+    color: #555;
+    text-decoration: none;
+}
+
+a.link:hover {
+    color: #222;
+    cursor: pointer;
+}
+
+.iconfont {
+    width: 20px;
+}
+
+.iconfont1 {
+    width: 30px;
+}
+
+i {
+    width: 18px;
+}
+
+.active i {
+    color: #fff;
+}
+
+.label-sm {
+    padding: .1px .2em .1em;
+}
+
+.page-title {
+    height: 36px;
+    line-height: 36px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+.filter {
+    padding: 10px 0px;
+}
+
+.filter .filter-label {
+    font-weight: bold;
+}
+
+.filter .filter-item-wrap {
+    margin-left: 60px;
+}
+
+.filter .filter-item {
+    margin-right: 20px;
+    padding: 2px 4px;
+}
+
+.filter .active {
+    background-color: #428bca;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.content-padding {
+    padding: 10px 15px;
+}
+
+.btn-fixw0 {
+    width: 100px;
+}
+
+.btn-fixw1 {
+    width: 150px;
+}
+
+.btn-fixw2 {
+    width: 200px;
+}
+
+div.form .rememberMe label {
+    display: inline;
+}
+
+
+/* mobile, hide and fixed */
+
+@media screen and (max-width: 767px) {
+    #sidebar {
+        position: fixed;
+        top: 51px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        /* Scrollable contents if viewport is shorter than content. */
+        background: #f5f5f5;
+        border-right: 1px solid #ccc;
+        display: none;
+    }
+    .mobile-hide {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .pc-hide {
+        display: none;
+    }
+}
+
+@media print {
+    a[href]:after {
+        content: none !important;
+    }
+}
+
+
+/* my css*/
+
+.pointer {
+    cursor: pointer;
+}
+
+.panel-heading.w-bg {
+    background-color: #fff;
+}
+
+.border-ddd {
+    border-color: #ddd;
+}
+
+
+/* 左侧nav > 竖线css */
+
+.left-line {
+    width: 3px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-flex;
+    margin-right: 20px;
+}
+
+
+/* 左侧nav > 区块高度css */
+
+.panel-body.left-nav {
+    padding-top: 9px;
+    padding-bottom: 9px;
+    padding-left: 0;
+}
+
+.img.left-nav-img {
+    height: 18px;
+}
+
+.list-group-item.left-nav-padding {
+    padding: 8px 15px;
+}
+.list-group-item.left-display-none {
+    padding: 8px 15px;
+    display: none;
+}
+
+
+/* 公共css 分页 - 图片垂直居中 */
+
+
+/* toast 样式*/
+
+.toast-success {
+    position: fixed;
+    z-index: 10000;
+    width: 7.6em;
+    min-height: 7.6em;
+    top: 50%;
+    left: 50%;
+    margin-left: -3.8em;
+    margin-top: -3.8em;
+    background: rgba(40, 40, 40, 0.75);
+    text-align: center;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.toast-success-icon {
+    margin: 22px 0 0;
+    display: block;
+}
+
+.toast-success-icon:before {
+    content: '\EA08';
+    color: #FFFFFF;
+    font-size: 55px;
+}
+
+.toast_content {
+    margin: 0 0 15px;
+}
+
+.loading_toast .toast_content {
+    margin-top: 64%;
+    font-size: 14px;
+}
+
+.pager li>a,
+.pager li>span.a {
+    border-radius: 10px;
+    padding: 2px 14px;
+}
+
+.img-middle {
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+}
+
+.img-text {
+    display: inline;
+    padding-top: 1px;
+}
+
+.color-black {
+    color: #333;
+}
+
+.yayi-bg-color {
+    background-color: #4E8BEB;
+}
+
+.yayi-grau-bg-color {
+    background-color: #afaeae;
+    color: #333;
+}
+
+.w-color {
+    color: #fff;
+}
+
+.yayi-text-color {
+    color: #5faaf4;
+}
+
+.content-middle {
+    padding-top: 72px;
+    position: relative;
+}
+
+.form-horizontal .control-label.label_text_left {
+    text-align: left;
+}
+
+
+/*.table > tbody > tr > td {text-align: center;}*/
+
+.table > tbody > tr:first-child {
+    font-weight: bold;
+}
+
+.panel-heading:first-child > h4 {
+    font-weight: bold;
+}
+
+
+/* nav-top*/
+
+.yayi-nav-top {
+    background-color: #4E8BEB;
+}
+
+.navbar-inverse .navbar-brand.nav-top-text {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a.nav-top-text {
+    color: #fff;
+}
+
+.line-height-30 {
+    line-height: 30px;
+}
+
+.filter .active {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+
+/* 登录模块颜色*/
+
+.loginbg-color {
+    background: -webkit-linear-gradient(90deg, #337de6, #2878e4, #3e7dda);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #337de6, #2878e4, #3e7dda);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #337de6, #2878e4, #3e7dda);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #337de6, #2878e4, #3e7dda);
+    /* 标准的语法 */
+}
+
+
+/* 挂号模块 颜色css*/
+
+.list-group-item.active.res-active,
+.list-group-item.active.res-active:focus,
+.list-group-item.active.res-active:hover {
+    /*background-color: #71A9FA;*/
+    background: -webkit-linear-gradient(90deg, #6397e0, #669ce6, #5992e6);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #6397e0, #669ce6, #5992e6);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #6397e0, #669ce6, #5992e6);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #6397e0, #669ce6, #5992e6);
+    /* 标准的语法 */
+    border-color: #6397e0;
+}
+
+.resbg-color,
+.active.resbg-color {
+    background: -webkit-linear-gradient(90deg, #6397e0, #669ce6, #5992e6);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #6397e0, #669ce6, #5992e6);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #6397e0, #669ce6, #5992e6);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #6397e0, #669ce6, #5992e6);
+    /* 标准的语法 */
+}
+
+.resbg-table-color {
+    color: #fff;
+    background: -webkit-linear-gradient(90deg, #6397e0, #4f8bdc);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #6397e0, #4f8bdc);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #6397e0, #4f8bdc);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #6397e0, #4f8bdc);
+    /* 标准的语法 */
+}
+
+.resbg-text {
+    color: #6397e0;
+}
+
+.panel-heading.res-head-border {
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    border-bottom-width: 2px;
+    border-bottom-color: #6397e0;
+}
+
+
+/* 诊间收费模块 颜色css*/
+
+.list-group-item.active.pay-active,
+.list-group-item.active.pay-active:focus,
+.list-group-item.active.pay-active:hover {
+    background: -webkit-linear-gradient(90deg, #46C4A7, #23b997, #46C4A7);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #46C4A7, #23b997, #46C4A7);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #46C4A7, #23b997, #46C4A7);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #46C4A7, #23b997, #46C4A7);
+    /* 标准的语法 */
+    border-color: #46C4A7;
+}
+
+.paybg-color,
+.active.paybg-color {
+    background: -webkit-linear-gradient(90deg, #46C4A7, #23b997, #46C4A7);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #46C4A7, #23b997, #46C4A7);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #46C4A7, #23b997, #46C4A7);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #46C4A7, #23b997, #46C4A7);
+    /* 标准的语法 */
+}
+
+.paybg-text {
+    color: #46C4A7;
+}
+
+.panel-heading.pay-head-border {
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    border-bottom-width: 2px;
+    border-bottom-color: #46C4A7;
+}
+
+.panel-heading.pay-head-border-bottom {
+    background-color: #fff;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #46C4A7;
+}
+
+
+/* 排版模块 颜色css*/
+
+.list-group-item.active.sch-active,
+.list-group-item.active.sch-active:focus,
+.list-group-item.active.sch-active:hover {
+    background: -webkit-linear-gradient(90deg, #6370E2, #7180ff, #6370E2);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #6370E2, #7180ff, #6370E2);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #6370E2, #7180ff, #6370E2);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #6370E2, #7180ff, #6370E2);
+    /* 标准的语法 */
+    border-color: #6370E2;
+}
+
+.schbg-color,
+.active.schbg-color {
+    background: -webkit-linear-gradient(90deg, #6370E2, #7180ff, #6370E2);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #6370E2, #7180ff, #6370E2);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #6370E2, #7180ff, #6370E2);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #6370E2, #7180ff, #6370E2);
+    /* 标准的语法 */
+}
+
+.schbg-table-color {
+    color: #fff;
+    background: -webkit-linear-gradient(90deg, #6370E2, #5664de);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #6370E2, #5664de);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #6370E2, #5664de);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #6370E2, #5664de);
+    /* 标准的语法 */
+}
+
+.schbg-text {
+    color: #6370E2;
+}
+
+.panel-heading.sch-head-border {
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    border-bottom-width: 2px;
+    border-bottom-color: #6370E2;
+}
+
+
+/* 数据模块 颜色css*/
+
+.list-group-item.active.count-active,
+.list-group-item.active.count-active:focus,
+.list-group-item.active.count-active:hover {
+    background: -webkit-linear-gradient(90deg, #76b722, #8cbd4b, #76b722);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #76b722, #8cbd4b, #76b722);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #76b722, #8cbd4b, #76b722);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #76b722, #8cbd4b, #76b722);
+    /* 标准的语法 */
+    border-color: #76b722;
+}
+
+.countbg-color,
+.active.countbg-color {
+    background: -webkit-linear-gradient(90deg, #76b722, #8cbd4b, #76b722);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #76b722, #8cbd4b, #76b722);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #76b722, #8cbd4b, #76b722);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #76b722, #8cbd4b, #76b722);
+    /* 标准的语法 */
+}
+
+.countbg-text {
+    color: #76b722;
+}
+
+.panel-heading.count-head-border {
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    border-bottom-width: 2px;
+    border-bottom-color: #76b722;
+}
+
+
+/* 诊间管理模块 颜色css*/
+
+.list-group-item.active.manage-active,
+.list-group-item.active.manage-active:focus,
+.list-group-item.active.manage-active:hover {
+    background: -webkit-linear-gradient(90deg, #476CD3, #577ce4, #476CD3);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #476CD3, #577ce4, #476CD3);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #476CD3, #577ce4, #476CD3);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #476CD3, #577ce4, #476CD3);
+    /* 标准的语法 */
+    border-color: #476CD3;
+}
+
+.managebg-color,
+.active.managebg-color {
+    background: -webkit-linear-gradient(90deg, #476CD3, #577ce4, #476CD3);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #476CD3, #577ce4, #476CD3);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #476CD3, #577ce4, #476CD3);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #476CD3, #577ce4, #476CD3);
+    /* 标准的语法 */
+}
+
+.managebg-text {
+    color: #476CD3;
+}
+
+.panel-heading.manage-head-border {
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    border-bottom-width: 2px;
+    border-bottom-color: #476CD3;
+}
+
+
+/* 点点医生模块 颜色css*/
+
+.list-group-item.active.dd-active,
+.list-group-item.active.dd-active:focus,
+.list-group-item.active.dd-active:hover {
+    background: -webkit-linear-gradient(90deg, #ea3654, #e84f69, #ea3654);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #ea3654, #e84f69, #ea3654);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #ea3654, #e84f69, #ea3654);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #ea3654, #e84f69, #ea3654);
+    /* 标准的语法 */
+    border-color: #E64C66;
+}
+
+.ddbg-color,
+.active.ddbg-color {
+    background: -webkit-linear-gradient(90deg, #ea3654, #e84f69, #ea3654);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #ea3654, #e84f69, #ea3654);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #ea3654, #e84f69, #ea3654);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #ea3654, #e84f69, #ea3654);
+    /* 标准的语法 */
+    border-color: #ea3654;
+}
+
+.ddbg-text {
+    color: #E64C66;
+}
+
+.panel-heading.dd-head-border {
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ddd;
+    border-bottom-width: 2px;
+    border-bottom-color: #E64C66;
+}
+
+.deletbtn {
+    background: -webkit-linear-gradient(90deg, #ea3654, #e84f69, #ea3654);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(90deg, #ea3654, #e84f69, #ea3654);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(90deg, #ea3654, #e84f69, #ea3654);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(90deg, #ea3654, #e84f69, #ea3654);
+    /* 标准的语法 */
+    border-color: transparent;
+    padding: 3px 8px;
+}
+
+.deletebtn {
+    margin-top: 3px;
+}
+
+
+/* 单独页样式start */
+
+
+/*挂号中心 */
+
+.panel>.list-group .list-group-item.res-center-list,
+.panel>.panel-collapse>.list-group .list-group-item.res-center-list {
+    border-style: none none solid none;
+    border-width: 1px 0;
+    border-color: #ddd;
+    padding-left: 30px;
+    margin-bottom: 0;
+}
+
+.res-center-username {
+    color: #332e2e;
+    display: inline-block;
+    line-height: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.list-group-item.paddingtop {
+    padding: 15px;
+}
+
+.res-center-newly {
+    padding: 0px 10px;
+    margin-right: 10px;
+    color: #71CA98;
+    border: 1px solid #71CA98;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    /* Old Firefox */
+}
+
+.res-center-referral {
+    padding: 0 10px;
+    margin-right: 10px;
+    color: #71CA98;
+    border: 1px solid #71CA98;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    /* Old Firefox */
+}
+
+.res-center-man {
+    padding: 0 3px;
+    margin-right: 15px;
+    color: #5faaf4;
+    border: 1px solid #5faaf4;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    /* Old Firefox */
+}
+
+.res-center-woman {
+    padding: 0 3px;
+    margin-right: 15px;
+    color: #ED6F2D;
+    border: 1px solid #ED6F2D;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+}
+
+.res-center-unknowsex {
+    padding: 0 10px;
+    margin-right: 10px;
+    color: #ccc;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    /* Old Firefox */
+}
+
+.res-center-doctor {
+    margin-right: 20px;
+}
+
+.res-center-datetime {
+    color: #333;
+}
+
+.list-line-height {
+    line-height: 2em;
+}
+
+
+/*挂号详情*/
+
+.res-det-list > div > a > p {
+    color: #5faaf4;
+}
+
+
+/*挂号修改*/
+
+.res-det-list > div > a > input {
+    color: #5faaf4;
+}
+
+
+/*挂号添加*/
+
+.res-date-name {
+    background-color: #fff;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    z-index: 99;
+}
+
+.res-date-name > ul:first-child > li {
+    width: 50px;
+    height: 61px;
+    padding: 5px;
+    text-align: center;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    line-height: 25px;
+}
+
+.res-date-name > ul > li {
+    width: 50px;
+    height: 122px;
+    padding: 5px 15px;
+    text-align: center;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    line-height: 22px;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+.res-table-data {
+    overflow: auto;
+}
+
+.res-add-table {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border: solid 1px #ccc;
+}
+
+.res-add-table-date {
+    width: 680.5px;
+    height: 61px;
+    position: relative;
+}
+
+.res-add-table-date > ul > li {
+    width: 90px;
+    height: 61px;
+    padding: 5px;
+    text-align: center;
+    float: left;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    line-height: 25px;
+}
+
+.res-add-table-date > ul > li:first-child {
+    width: 50px;
+}
+
+
+/*.res-add-table-date > ul > li:last-child{
+	border-right: none;
+}*/
+
+.res-add-table-doctor {
+    width: 680.5px;
+    height: 122px;
+    position: relative;
+    overflow: auto;
+}
+
+.res-add-table-doctor > ul.name {
+    width: 50px;
+    height: 122px;
+    padding: 5px 15px;
+    text-align: center;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    line-height: 22px;
+    overflow: hidden;
+    float: left;
+}
+
+.res-add-table-doctor > ul.name > li {
+    width: 35px;
+    height: 122px;
+    padding: 5px;
+    text-align: center;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    line-height: 38px;
+}
+
+.res-add-table-doctor > ul.date {
+    width: 90px;
+    height: 122px;
+    float: left;
+}
+
+.res-add-table-doctor > ul.date > li {
+    width: 90px;
+    height: 61px;
+    padding: 5px;
+    text-align: center;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    line-height: 50px;
+    float: none;
+}
+
+.dialog-box {}
+
+
+/*pay-start*/
+
+.gouwuche {
+    position: fixed;
+    bottom: 0;
+    z-index: 99;
+    width: 100%;
+}
+
+.pay_mragin {
+    margin-bottom: 120px;
+}
+
+.service-list {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 500px;
+}
+
+.service-list::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+    /* remove scrollbar space */
+    background: transparent;
+    /* optional: just make scrollbar invisible */
+}
+
+@media (min-width: 768px) {}
+
+@media (max-width: 767px) {
+    .service-list {
+        max-height: 200px;
+    }
+}
+
+.pay-start-img {
+    background-image: url(../img/shopping_car.ico);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    background-color: #fff;
+    position: relative;
+    line-height: 50px;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    /* Old Firefox */
+}
+
+.pay-start-badge {
+    position: absolute;
+    right: -10px;
+    top: 0;
+    background-color: #d9534f;
+}
+
+
+/*pay-second*/
+
+#pay-2-list > ul {
+    margin-bottom: 0;
+}
+
+#pay-2-list > ul > li:not(:first-child) {
+    line-height: 34px;
+}
+
+
+/* pay—last*/
+
+.pay_card_box {
+    display: none;
+}
+
+.pay_confirm {
+    display: none;
+}
+
+.ma-img {
+    width: 40px;
+}
+
+.pay-img > canvas {
+    width: 150px;
+    height: 150px;
+}
+
+.pay-last-ordercontent {
+    padding-top: 7px;
+}
+
+.pay-last-serviceList > li:last-child,
+.pay-order-det-serviceList > li:last-child {
+    border-bottom: none;
+}
+
+#alert_box {
+    display: none;
+}
+
+#offline_alert {
+    display: none;
+}
+
+
+/* 订单详情-退款*/
+
+.refundModal {
+    position: fixed;
+    top: 50%;
+    margin-top: -145px;
+}
+
+
+/* scheduling 排版*/
+
+.sch-btn-y {
+    height: 30px;
+}
+
+.scheduling-table-date > ul > li.date_name {
+    line-height: 50px;
+}
+
+.scheduling-table {
+    width: 100%;
+    height: auto;
+    border-top: solid 2px #ccc;
+    border-left: solid 1px #ccc;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    position: relative;
+    overflow: auto;
+}
+
+.scheduling-table-date {
+    width: 680.5px;
+    height: 61px;
+}
+
+.scheduling-table-date > ul > li {
+    width: 82px;
+    height: 61px;
+    padding: 5px;
+    text-align: center;
+    float: left;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    line-height: 25px;
+}
+
+.scheduling-table-date > ul > li:first-child {
+    width: 106px;
+}
+
+.scheduling-table-date > ul > li:last-child {
+    border-right: none;
+}
+
+.scheduling-table-doctor {
+    width: 680.5px;
+    height: 122px;
+}
+
+.scheduling-table-doctor > ul.name {
+    width: 106px;
+    height: 122px;
+    float: left;
+}
+
+.scheduling-table-doctor > ul.name > li {
+    width: 106px;
+    height: 122px;
+    padding: 15px 20px;
+    text-align: center;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    line-height: 50px;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.scheduling-table-doctor > ul.date {
+    width: 82px;
+    height: 122px;
+    float: left;
+}
+
+.scheduling-table-doctor > ul.date > li {
+    width: 82px;
+    height: 61px;
+    padding: 5px;
+    text-align: center;
+    border-right: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
+    line-height: 50px;
+    float: none;
+}
+
+.scheduling-table-doctor > ul.date:last-child > li {
+    border-right: none;
+}
+
+.dialog-box {
+    position: fixed;
+    top: 50%;
+    margin-top: -193px;
+}
+
+.input-group .form-control.start-time-input {
+    width: 150px;
+}
+
+
+/* 管理 */
+
+
+/* 医生管理-医生详情 */
+
+.manage-doctor-det-span {
+    display: inline-block;
+    padding-top: 7px;
+}
+
+
+/* 诊间管理*/
+
+#tag-list > .panel {
+    border-radius: 0;
+    border-top-color: transparent;
+}
+
+#tag-list {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.panel-title.tag-fontsize {
+    font-size: 15px;
+}
+
+#tag-list > .panel:first-child {
+    border-radius: 4px 4px 0 0;
+    border-top-color: #ddd;
+}
+
+#tag-list > .panel:last-child {
+    border-radius: 0 0 4px 4px;
+}
+
+.tag_box {
+    padding: 0;
+}
+
+.tag-list {
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.tag_menu_box {
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.dropdown-menu.tag_menu {
+    left: initial;
+    right: 0;
+}
+
+.Sectag-update {
+    height: 40px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+/* 添加标签 */
+
+#addtag-list {
+    padding: 0;
+}
+
+#addtag-list > .panel {
+    border-radius: 0;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.panel-title.tag-fontsize {
+    font-size: 15px;
+}
+
+#addtag-list > .panel:first-child {
+    border-radius: 4px 4px 0 0;
+    border-top-color: transparent;
+}
+
+#addtag-list > .panel:last-child {
+    border-radius: 0 0 4px 4px;
+    border-top-color: #ddd;
+}
+
+.addtag-list {
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+
+/* 多点医生*/
+
+.dd_avatar {
+    width: 120px;
+    height: 120px;
+}
+
+.dd_del_btn {
+    position: relative;
+}
+
+.dd_del_img {
+    position: absolute;
+    top: 50%;
+    margin-top: -8px;
+}
+
+
+/* 登录 */
+
+
+/* nav-top */
+
+.nav-top {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    z-index: 100;
+    background: #fff
+}
+
+.nav-top-box {
+    padding: 8px 10px;
+}
+
+.nav-top-scan,
+.nav-top-scan:hover,
+.nav-top-scan:focus {
+    border: 1px solid;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    background: #fff;
+    color: #5faaf4;
+}
+
+.nav-top-download,
+.nav-top-download:hover,
+.nav-top-download:focus {
+    border: 1px solid;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    background: #5faaf4;
+    color: #fff;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #5faaf4;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #5faaf4;
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+    border-color: #5faaf4;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #5faaf4;
+}
+
+.navbar-inverse .navbar-toggle:hover .icon-bar,
+.navbar-inverse .navbar-toggle:focus .icon-bar {
+    background-color: #fff;
+}
+
+.bg-write {
+    background: rgb(255, 255, 255);
+}
+
+.img-middle {
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.logo-img {
+    width: auto;
+    height: auto;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.nav-logo {
+    height: 100%;
+}
+
+.navbar-inverse .navbar-brand.nav-logo-text {
+    color: #5faaf4;
+    float: none;
+    line-height: 50px;
+}
+
+.scan-box {
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    z-index: 80;
+    top: 50px;
+    display: none;
+}
+
+.scan-box img {
+    width: 100%;
+}
+
+.ma-box {
+    position: relative;
+}
+
+.h5-box {
+    position: relative;
+}
+
+.app-box {
+    position: relative;
+}
+
+.bodybg {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.login {
+    width: 100%;
+    height: 100%;
+    background: -webkit-linear-gradient(180deg, #E7E7E7, #F1F3F3, #d6d6d6);
+    /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(180deg, #E7E7E7, #F1F3F3, #d6d6d6);
+    /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(180deg, #E7E7E7, #F1F3F3, #d6d6d6);
+    /* Firefox 3.6 - 15 */
+    background: linear-gradient(180deg, #e6e6e6, #d8dbdc, #d6d6d6);
+    /* 标准的语法 180deg, #e6e6e6, #d8dbdc, #868181*/
+    background-repeat: no-repeat;
+}
+
+.login-name {
+    font-size: 20px;
+    color: #000;
+}
+
+.login-input {
+    color: #000;
+}
+
+.login-logo {
+    height: 35px;
+}
+
+.login-img {
+    height: 295px;
+    border-radius: 6px 0 0 6px;
+    background-image: url(../../img/login_img.png);
+    background-size: cover;
+    border-right-style: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .5);
+}
+
+.login-box {
+    border-radius: 0 6px 6px 0;
+    border-left-style: none;
+}
+
+.add-clinicTag-div .panel-title::before {
+    content: "▾ ";
+}
+
+.collapsed .add-clinicTag-div .panel-title::before {
+    content: "▸ ";
+}
+
+@media (min-width: 768px) {
+    .login-bg {
+        width: 500px;
+        margin: 30px auto;
+    }
+}
+
+@media (min-width: 1919px) {
+    .login-bg {
+        width: 700px;
+        margin: 30px auto;
+    }
+    .login-img {
+        height: 407px;
+    }
+    .login-box {
+        height: 407px;
+        padding: 40px 0;
+    }
+    .login-form > .form-group {
+        margin-bottom: 25px;
+    }
+}
+
+.loading_box {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+}
+
+#loading_end {
+    display: none;
+}
+
+
+/* 加载中动画 */
+
+.spinner {
+    margin: 100px auto;
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+
+.container1 > div,
+.container2 > div,
+.container3 > div {
+    width: 6px;
+    height: 6px;
+    background-color: #333;
+    border-radius: 100%;
+    position: absolute;
+    -webkit-animation: bouncedelay 1.2s infinite ease-in-out;
+    animation: bouncedelay 1.2s infinite ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.spinner .spinner-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.container2 {
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+}
+
+.container3 {
+    -webkit-transform: rotateZ(90deg);
+    transform: rotateZ(90deg);
+}
+
+.circle1 {
+    top: 0;
+    left: 0;
+}
+
+.circle2 {
+    top: 0;
+    right: 0;
+}
+
+.circle3 {
+    right: 0;
+    bottom: 0;
+}
+
+.circle4 {
+    left: 0;
+    bottom: 0;
+}
+
+.container2 .circle1 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+.container3 .circle1 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+.container1 .circle2 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.container2 .circle2 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+.container3 .circle2 {
+    -webkit-animation-delay: -0.7s;
+    animation-delay: -0.7s;
+}
+
+.container1 .circle3 {
+    -webkit-animation-delay: -0.6s;
+    animation-delay: -0.6s;
+}
+
+.container2 .circle3 {
+    -webkit-animation-delay: -0.5s;
+    animation-delay: -0.5s;
+}
+
+.container3 .circle3 {
+    -webkit-animation-delay: -0.4s;
+    animation-delay: -0.4s;
+}
+
+.container1 .circle4 {
+    -webkit-animation-delay: -0.3s;
+    animation-delay: -0.3s;
+}
+
+.container2 .circle4 {
+    -webkit-animation-delay: -0.2s;
+    animation-delay: -0.2s;
+}
+
+.container3 .circle4 {
+    -webkit-animation-delay: -0.1s;
+    animation-delay: -0.1s;
+}
+
+@-webkit-keyframes bouncedelay {
+    0%,
+    80%,
+    100% {
+        -webkit-transform: scale(0.0)
+    }
+    40% {
+        -webkit-transform: scale(1.0)
+    }
+}
+
+@keyframes bouncedelay {
+    0%,
+    80%,
+    100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+    }
+    40% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+    }
+}
+
+.toast {
+    position: relative;
+    z-index: 100000;
+}
+
+
+/* zs --------------------------------------*/
+
+.width50-displayinline {
+    width: 20%;
+    display: inline-block;
+}
+
+.new-message {
+    background-color: #fdf9e3;
+    border: 1px solid #fbeccd;
+    color: #b9843d;
+    font-size: 10px;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 2%;
+    display: none;
+    border-radius: 3px;
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color:#000;
+}
+
+a:link {
+    text-decoration: none;
+    color:#000;
+}
+
+a:visited {
+    text-decoration: none;
+    color:#000;
+}
+
+a:hover {
+    text-decoration: none;
+    color:#000;
+}
+
+.badgezs {
+    vertical-align: inherit;
+    color: #71A9FA;
+    background-color: #fff;
+    margin-left: 10%;
+    display: inline;
+}
+
+#newmessage:after {
+    content: "x";
+    position: absolute;
+    right: 5%;
+}
+
+
+/*.padding03{
+	padding:0 3px;
+}*/
+
+.font12px {
+    font-size: 12px;
+}
+
+.fontWeight700 {
+    font-weight: 700
+}
+
+.width10P {
+    width: 11%
+}
+
+.width9p {
+    width: 9%
+}
+
+li.padding03 >span {
+    padding: 0 1px;
+    line-height: 40px !important
+}
+
+.padding5_8 {
+    padding: 5px 8px
+}
+
+.nonefloat {
+    float: none !important
+}
+
+.width50height30 {
+    width: 50px;
+    height: 30px;
+}
+
+input.padding06 {
+    padding: 0 3px
+}
+
+.nonedisplay {
+    display: none;
+}
+
+.height45 {
+    height: 45px;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.margin-top--20 {
+    margin-top: -20px;
+}
+
+.paddingtop3 {
+    padding-top: 3px !important
+}
+
+.inline80p {
+    display: inline !important;
+    width: 76%;
+}
+.backgroundgray{
+    background-color:#ccc;
+    color:#333
+}
+.displayinline{
+    display:inline
+}
+.overflow-hidden{
+    overflow:hidden
+}
+.float-right{
+    float: right
+}
+
+/* switchbox begin */
+.mask {       
+    position: absolute; 
+    top: 140px;
+    filter: alpha(opacity=60); 
+    background-color: #777;     
+    z-index: 1002; 
+    left: 0;     
+    opacity:0.25; 
+    -moz-opacity:0.25;     
+}
+#switchbox #switchcont{
+        width: 60px;
+        height: 34px;
+        border-radius: 30px;
+        position: relative;
+    }
+#switchbox #switchbut{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+}
+#switchbox .open1{
+    background: rgba(0,184,0,0.8);
+}
+#switchbox .open2{
+    top: 2px;
+    right: 1px;
+}
+#switchbox .close1{
+    background: rgba(255,255,255,0.4);
+    border:3px solid rgba(0,0,0,0.15);
+    border-left: transparent;
+}
+#switchbox .close2{
+    left: 2px;
+    top: -2px;
+    border:2px solid rgba(0,0,0,0.1);
+}
+/* switchbox end */
+
+/* 预约中心·改  booking */
+.sub_center_toolbox{
+    padding-left: 0;
+    padding-right: 0;  
+}
+
+@media screen and (max-width: 767px) {
+    .subscribe_det{  
+        width: 100%;
+    }
+}
+@media screen and (min-width: 768px) {
+    .subscribe_det{  
+        width: 50%;
+    }
+}
+@media screen and (min-width: 1300px) {
+    .subscribe_det{  
+        width: 40%;
+    }
+}
+.subscribe_det{
+    position: fixed;
+    height: 100%;
+    right: -100%;
+    top: 0;
+    border-radius: 0;
+    background-color: #fff;
+    border:1px solid #ccc;
+    z-index: 10000;
+    color: #252525;
+    transition: right .5s ease;
+    -moz-transition: right .5s ease;
+    -webkit-transition: right .5s ease;
+    -o-transition: right .5s ease;
+}
+
+.smarginleft{
+    margin-left: 20px;
+}
+
+.sub_det_important{
+    color: #F48148
+}
+
+.sub_date{
+    width: 110px;
+}
+.input-group .form-control.sub_date_input{
+    width:100px;
+    float: right;
+    font-size: 12px;
+    padding:6px 6px;
+}
+.sub_select_box{
+    display: inline-block;
+}
+.sub_select{
+    width: 90px;
+    padding:6px 6px;
+}
+
+.panel-heading.sub_det_heading{
+    height: 50px;
+    background-color: #fff;
+    padding: 0 15px;
+    line-height:50px;
+    border-color: transparent;
+}
+.panel-body.sub_det_panel_body{
+    padding: 15px 15px 0 15px;
+}
+.list-group.sub_det_list_group{
+    margin-bottom: 0;
+}
+.sub_det_title{
+    width: 100px;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    font-size: 18px;
+    color: #252525;
+    border-bottom: 1px solid #4E8BEB;
+}
+.sub_det_close{
+    width: 50px;
+    height: 100%;
+    display: inline-block;
+    text-align: right;
+    float: right;
+    cursor: pointer;
+    font-size: 22px;
+}
+.sub_det_bc{
+    width: 50px;
+    height: 100%;
+    display: inline-block;
+    text-align: right;
+    font-size: 18px;
+    float: right;
+    cursor: pointer;
+}
+.sub_det_img{
+    display: inline-block;
+    width: 50px;
+}
+.sub_det_patient_name{
+    width: 100px;
+}
+.sub_det_gender{
+    color: #8D8D8D;
+}
+.sub_det_age{
+    color: #8D8D8D;
+}
+.sub_det_project{
+    margin-left: 50px;
+    display: inline-block;
+}
+.sub_det_det{
+    display: inline-block;
+}
+.sub_det_btn_box{
+    display: inline-block;
+    margin-top: -5px;
+    float: right;
+}
+
+@media screen and (max-width: 767px) {
+    .sub_det_btn_box .sub_det_btn{
+        background-color: #4E8BEB;
+        border-color: #4E8BEB;
+    }
+}
+@media screen and (min-width: 768px) {
+    .sub_det_btn_box .sub_det_btn{
+        width: 80px;
+        background-color: #4E8BEB;
+        border-color: #4E8BEB;
+    }
+}
+@media screen and (min-width: 1192px) {
+    .sub_det_btn_box .sub_det_btn{
+        width: 100px;
+        background-color: #4E8BEB;
+        border-color: #4E8BEB;
+    }
+}
+
+.sub_det_updateBtn{
+    border: 1px solid #4E8BEB;
+    color: #4E8BEB;
+}
+.sub_det_cancelBtn{
+    border: 1px solid #8D8D8D;
+    color: #8D8D8D;
+}
+#sub_detBox{
+    position: fixed;
+    border-left: 1px solid #e6e6e6;
+    background-color: white;
+    height: 100%;
+    right: -100%;
+    z-index: 1100;
+    background-color: white;
+    top: 0;
+    transition: right .5s ease;
+    -moz-transition: right .5s ease;
+    -webkit-transition: right .5s ease;
+    -o-transition: right .5s ease;
+}
+@media screen and (max-width: 767px) {
+    #sub_detBox{  
+        width: 100%;
+    }
+}
+@media screen and (min-width: 768px) {
+    #sub_detBox{  
+        width: 40%;
+    }
+}
+@media screen and (min-width: 1300px) {
+    #sub_detBox{  
+        width: 35%;
+    }
+}
+/* booking end */
+
+/* tabright being */
+#tabright_{
+     position: fixed;
+    background-color: white;
+    height: 100%;
+    right: -100%;
+    z-index: 1050;
+    background-color: white;
+    top: 0;
+    transition: right .5s ease;
+    -moz-transition: right .5s ease;
+    -webkit-transition: right .5s ease;
+    -o-transition: right .5s ease;
+}
+@media screen and (max-width: 767px) {
+    #tabright_{  
+        width: 90%;
+    }
+}
+@media screen and (min-width: 768px) {
+    #tabright_{  
+        width: 60%;
+    }
+}
+@media screen and (min-width: 1300px) {
+    #tabright_{  
+        width: 40%;
+    }
+}
+#tabright{
+    position: fixed;
+    background-color: white;
+    height: 100%;
+    right: -100%;
+    z-index: 1050;
+    background-color: white;
+    top: 0;
+    transition: right .5s ease;
+    -moz-transition: right .5s ease;
+    -webkit-transition: right .5s ease;
+    -o-transition: right .5s ease;
+}
+@media screen and (max-width: 767px) {
+    #tabright{  
+        width: 90%;
+    }
+}
+@media screen and (min-width: 768px) {
+    #tabright{  
+        width: 60%;
+    }
+}
+@media screen and (min-width: 1300px) {
+    #tabright{  
+        width: 40%;
+    }
+}
+.mask-div {
+    display:none;
+    position: absolute;
+    top: 0;
+    filter: alpha(opacity=60);
+    background-color: #777;
+    z-index: 1040;
+    left: 0;
+    opacity: 0.5;
+}
+.reg_img{
+    width: 15px;
+}
+.modal-select{
+    z-index: 1090;
+}
+/*#tabright input,#tabright select{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    line-height: 30px;
+}
+#tabright select{
+    height: 30px;
+}
+#tabright textarea{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+#tabright button{
+    background: #6EA9FB;
+    margin: 0 27px;
+    height: 34px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    color:#fff
+}
+#tabright .titleline{
+    border-bottom: 2px solid #97B8EF;
+    padding-bottom: 10px;
+}*/
+/* tabright end */
+
+
+.height1-gray{
+    height: 1px;
+    width:100%;
+    background-color: gray;
+}
+.height40{
+    height:40px;
+}
+.height80{
+    height:80px;
+}
+.height40 .col-sm-3,.height80 .col-sm-3{
+    width: 27%;
+}
+.height40:first-child .col-sm-3.displayinline{
+    line-height:40px;
+}
+.registrationBox:first-child {
+    height:40px;
+}
+
+/* modalbox being */
+/*#modalbox{
+    position: absolute;
+    background-color: white;
+    width: 700px;
+    right: 100px;
+    top: 90px;
+    z-index: 1070;
+    display: none;
+    left:50%;
+    margin-left:-350px
+}*/
+/* modalbox end */
+
+/* .patientbox .headTitle{
+    width:20%;
+    display: inline-block;
+    text-align: center;
+    background-color: #F3F3F3;
+    height: 30px;
+    line-height: 30px;
+    color:#8A8A8A;
+}
+.patientbox .content{
+    width:20%;
+    display: inline-block;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+.patientbox .schtype{
+    width:18%;
+    display: inline-block;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+} */
+.patientbox .borderbottom{
+    border-bottom: #71A9FA 1px solid;
+}
+
+/*  sub_set 预约设置 */
+.sub_set_selectBox{
+    display: inline-block;
+    width: 100px;
+}
+.sub_dateInput{
+    display: inline-block;
+    width: 150px;
+}
+
+/* 患者模糊查询联想 */
+.userSearchList{margin:0 auto; background:#EBEBEB; position:relative;}
+
+.userSearchList .on_changes{width:232px; position:absolute; top:40px; list-style:none; background:#FFF; border:1px solid #000; display:none; padding:10px;z-index:1}
+
+.userSearchList .on_changes li{margin:8px;padding:4px;}
+
+.userSearchList .on_changes li.active{ background:#CEE7FF;}
