@@ -198,19 +198,6 @@ var Condition_Area = React.createClass({
 
 var List_Area = React.createClass({
 	componentDidMount: function() {
-		// if (pageAllnum == 1) {
-		// 	$("#sub_center").find("#previousPage").addClass("hidden");
-		// 	$("#sub_center").find("#nextPage").addClass("hidden");
-		// } else if (refObj.currentPage == pageAllnum) {
-		// 	$("#sub_center").find("#previousPage").removeClass("hidden");
-		// 	$("#sub_center").find("#nextPage").addClass("hidden");
-		// } else if (refObj.currentPage == 1) {
-		// 	$("#sub_center").find("#previousPage").addClass("hidden");
-		// 	$("#sub_center").find("#nextPage").removeClass("hidden");
-		// } else {
-		// 	$("#sub_center").find("#previousPage").removeClass("hidden");
-		// 	$("#sub_center").find("#nextPage").removeClass("hidden");
-		// }
 		changeTimeShow(new Date());
 		this.searchallClick();
 	},
@@ -234,9 +221,9 @@ var List_Area = React.createClass({
 		this.props.onCommentSubmit(dataList);
 	},
 	nextClick: function() {
-		if(conditiontype == conditionState){
+		if (conditiontype == conditionState) {
 			refObj.currentPage++;
-		}else{
+		} else {
 			refObj.currentPage = 1;
 		}
 		refleshSBData(refObj);
@@ -257,9 +244,9 @@ var List_Area = React.createClass({
 		}
 	},
 	prevClick: function() {
-		if(conditiontype == conditionState){
+		if (conditiontype == conditionState) {
 			refObj.currentPage--;
-		}else{
+		} else {
 			refObj.currentPage = 1;
 		}
 		refObj.currentPage = refObj.currentPage < 1 ? 1 : refObj.currentPage;
@@ -339,7 +326,7 @@ var List_Area = React.createClass({
 			var reserved_Time = "";
 
 			if (comment.confirm == 0) {
-				
+
 				if (comment.arrive == 2) {
 					status = "已过期";
 				} else {
@@ -536,11 +523,6 @@ var App = React.createClass({
 		});
 	},
 	refleshTable: function() {
-		// refObj.startDate = $("#startDate").val();
-		// refObj.endDate = $("#endDate").val();
-		// refObj.confirmID = $("#confirmSelect").val();
-		// refObj.arriveID = $("#arriveSelect").val();
-		// refObj.searchText = $("#searchText").val();
 		refObj.currentPage = 1;
 		refObj.startDate = "";
 		refObj.endDate = ""

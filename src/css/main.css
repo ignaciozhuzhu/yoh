@@ -77,14 +77,14 @@ li {
 }
 
 .container {
-    max-width: 950px;
+    max-width: 1280px;
     /*970 - 20, 730 */
     min-width: 320px;
     /*320 - 20*/
 }
 
 .footer > .container {
-    max-width: 950px;
+    max-width: 1280px;
     /*970 - 20, 730 */
     min-width: 0px;
     /*320 - 20*/
@@ -2301,7 +2301,7 @@ input.padding06 {
     width: 150px;
 }
 
-/* 患者模糊查询联想 */
+/* 患者模糊查询联想 begin */
 .userSearchList{margin:0 auto; background:#EBEBEB; position:relative;}
 
 .userSearchList .on_changes{width:232px; position:absolute; top:40px; list-style:none; background:#FFF; border:1px solid #000; display:none; padding:10px;z-index:1}
@@ -2309,3 +2309,67 @@ input.padding06 {
 .userSearchList .on_changes li{margin:8px;padding:4px;}
 
 .userSearchList .on_changes li.active{ background:#CEE7FF;}
+/* 患者模糊查询联想 end */
+
+/*   调整菜单栏 以及 整个布局的比例   begin        */
+
+.container .col-sm-3{
+    padding-left:0;
+    width:19%;
+}
+.container .col-sm-9{
+    padding-left:0;
+    padding-right:0;
+    width:81%
+}
+/*   调整菜单栏 以及 整个布局的比例   end        */
+
+
+/*   工作台   begin        */
+.controlDiv .myborder{
+    border:1px solid #888;
+    height: 980px;
+}
+.controlDiv #content .col-md-9{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.controlDiv #content .col-md-9 .col-md-4{
+    width: 31.333%;
+    margin-right: 2%;
+}
+
+.controlDiv .form{
+    position: absolute;
+    border: 1px solid #ccc;
+    color:#000;
+    border-radius: 5px;
+    background-color:#fff;
+}
+.controlDiv .drag{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    width: 100%;
+    height:inherit;
+    line-height: inherit;
+    cursor: move;
+}
+.controlDiv .rotate10{
+    transform:rotate(10deg);
+    -ms-transform:rotate(10deg); /* IE 9 */
+    -webkit-transform:rotate(10deg); /* Safari and Chrome */
+}
+.controlDiv .btn.btn-default
+{
+    margin-left: 0;
+    color: rgb(255, 255, 255);
+    background-color: rgb(51, 122, 183);
+    border: none;
+    height: 20px;
+    line-height: 0;
+    border-radius: 2px;
+    font-size: 12px;
+}
+/*   工作台   end        */
