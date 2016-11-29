@@ -41,6 +41,7 @@ module.exports = {
 				"js/subscribe_set": "./src/js/subscribe_set.js",*/
 
 		"js/console": "./src/js/console.js",
+		"js/console_back": "./src/js/console_back.js",
 
 	},
 	output: {

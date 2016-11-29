@@ -23,7 +23,7 @@ import {
 	LoadingBox
 } from './components/Paging.js';
 
-var MyForm = require('./components/drag/myForm.js');
+var MyForm = require('./components/drag/myForm_back.js');
 
 $(document).ready(function() {
 	//判断登陆与否

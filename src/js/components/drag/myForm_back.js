@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var DragArea = require('./DragArea.js');
+var DragArea = require('./DragArea_back.js');
 
 var draggedFromTopIndex = 0;
 var draggedToTopIndex = 0;
