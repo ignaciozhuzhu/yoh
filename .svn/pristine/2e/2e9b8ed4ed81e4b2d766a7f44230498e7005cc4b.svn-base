@@ -46,17 +46,17 @@ var App = React.createClass({
           doc="黄警官"
           time="18:00-18:30"
           project="拔牙" />,
-			document.getElementById('box0')
+			document.getElementById('box')
 		);
 		ReactDOM.render(
 			<MyForm
-		          col="3"
-		          name="小王"
-		          mobile="18550000001"
-		          doc="张医生"
-		          time="19:00-18:30"
-		          project="镶牙" />,
-			document.getElementById('box1')
+          col="3"
+          name="小王"
+          mobile="18550000001"
+          doc="张医生"
+          time="19:00-18:30"
+          project="镶牙" />,
+			document.getElementById('box2')
 		);
 		ReactDOM.render(
 			<MyForm
@@ -66,7 +66,7 @@ var App = React.createClass({
           doc="马医生"
           time="19:00-18:30"
           project="注牙" />,
-			document.getElementById('box2')
+			document.getElementById('box3')
 		);
 		ReactDOM.render(
 			<MyForm
@@ -76,7 +76,7 @@ var App = React.createClass({
           doc="赌医生"
           time="19:00-18:30"
           project="烂牙" />,
-			document.getElementById('box3')
+			document.getElementById('box4')
 		);
 		ReactDOM.render(
 			<MyForm
@@ -86,16 +86,6 @@ var App = React.createClass({
           doc="法医生"
           time="6:00-8:30"
           project="输牙" />,
-			document.getElementById('box4')
-		);
-		ReactDOM.render(
-			<MyForm
-          col="3"
-          name="小p"
-          mobile="18550000005"
-          doc="法医生"
-          time="6:00-8:30"
-          project="牙" />,
 			document.getElementById('box5')
 		);
 	},
@@ -124,9 +114,7 @@ var App = React.createClass({
 												  <div className="col-md-4 text-center myborder">今日预约</div>
 												  <div className="col-md-4 text-center myborder">今日就诊</div>
 												  <div className="col-md-4 text-center myborder">今日回访</div>
-												  <div id="box0">
-												  </div>
-												  <div id="box1">
+												  <div id="box">
 												  </div>
 												  <div id="box2">
 												  </div>

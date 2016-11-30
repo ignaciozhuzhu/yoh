@@ -54,11 +54,11 @@ var DragArea = React.createClass({
   },
   link: function() {
     console.log("let me link out!");
-    //  window.location.href = "http://www.yayi365.cn"
+    window.location.href = "http://www.yayi365.cn"
   },
   link2: function() {
     console.log("let me link out2!");
-    // window.open("http://www.baidu.com");
+    window.open("http://www.baidu.com");
   }
 });
 

@@ -1,0 +1,111 @@
+'use strict';
+import {
+	serviceurl,
+	ipurl,
+	sohu
+} from './lib/common.js';
+import {
+	toast
+} from './lib/toast.js';
+import Vld from 'validator';
+
+$("body").keydown(function() {
+	if (event.keyCode == "13") { //keyCode=13是回车键
+		$("#loginBtn").click();
+	}
+});
+
+//header-nav
+/*$("#h5-box").mouseenter(function() {
+	$("#scan-box").stop().slideDown();
+})
+$("#h5-box").mouseleave(function() {
+	$("#scan-box").stop().slideUp();
+});*/
+
+$("#saveBtn").click(function() {
+	var name = $("#clinicName").val();
+	var address = $("#clinicAddress").val();
+	var telephone = $("#clinicTelephone").val();
+	var fullname = $("#clinicFullname").val();
+	var mobile = $("#clinicMobile").val();
+	var bd_password = $("#bd_password").val();
+
+	if (Vld.isLength(name, {
+			min: 2,
+			max: 50
+		}) === false) {
+		toast.show('请输入诊所名称，2~50字！');
+		return;
+	}
+	if (Vld.isLength(address, {
+			min: 2,
+			max: 200
+		}) === false) {
+		toast.show("请输入诊所地址，2~200字！");
+		return;
+	}
+	if (Vld.isLength(telephone, {
+			min: 1,
+			max: 30
+		}) === false) {
+		toast.show("请正确输入诊所电话！");
+		return;
+	}
+	if (Vld.isLength(fullname, {
+			min: 2,
+			max: 20
+		}) === false) {
+		toast.show("请输入联系人姓名，2~20字！");
+		return;
+	}
+	if (Vld.isMobilePhone(mobile, 'zh-CN') === false) {
+		toast.show("请输入联系人11位手机号！");
+		return;
+	}
+	if (!bd_password) {
+		toast.show("请输入验证码！");
+		return;
+	}
+
+	var countycode = "";
+	/*global returnCitySN*/
+	$.getScript(sohu, function() {
+		countycode = returnCitySN.cid;
+		var _params = {
+			"name": name,
+			"countycode": countycode,
+			"address": address,
+			"telephone": telephone,
+			"x": "",
+			"y": "",
+			"fullname": fullname,
+			"mobile": mobile,
+			"bd_password": bd_password
+		};
+		$.ajax({
+			url: serviceurl + "hospital/bdInsert",
+			type: "post",
+			dataType: "json",
+			data: JSON.stringify(_params),
+			contentType: "application/json",
+			cache: false,
+			success: function(dt) {
+				console.log(JSON.stringify(dt));
+				if (dt.status == "success") {
+					toast.show("申请成功");
+					setTimeout(function() {
+						location.href = ipurl + "login.html";
+					}, 2000);
+				} else {
+					toast.show(dt.message);
+					return;
+				}
+			},
+			error: function(XMLHttpRequest) {
+				toast.show(XMLHttpRequest.responseJSON.message);
+				return;
+			}
+		});
+	});
+});

@@ -2,52 +2,31 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var DragArea = require('./DragArea.js');
 
-const MAXCOL = 15;
-var totalCol = 6;
 var draggedFromTopIndex = 0;
 var draggedToTopIndex = 0;
-var otherleft = 0;
-var isMoved = false;
+const MAXCOL = 15;
+var totalCol = 5;
 var MyForm = React.createClass({
   getInitialState: function() {
-    var COL = this.props.col; //分成4栏还是3栏
-    const DRBOXWIDTH = $('.controlDiv #content .col-md-9 .col-md-4').width(); //  200; //拖拽框的宽度
-    const DRBOXHEIGHT = 100; //拖拽框的高度
-
-    let colWidth = 0; //格子的宽度
-    let colInnerWidth = 0;
-    let md4MarginRight = 0;
-    let colHeight = 110;
-    let spHeight = 10;
-
-    if (COL == 4) {
-      md4MarginRight = $('.controlDiv #content .col-md-9 .col-md-3').css('marginRight');
-      md4MarginRight = Math.round(md4MarginRight.substr(0, md4MarginRight.length - 2));
-      colWidth = $(".col-md-3").innerWidth() + md4MarginRight + 2;
-      colInnerWidth = $(".col-md-3").innerWidth() + 1;
-    } else if (COL == 3) {
-      md4MarginRight = $('.controlDiv #content .col-md-9 .col-md-4').css('marginRight');
-      md4MarginRight = Math.round(md4MarginRight.substr(0, md4MarginRight.length - 2));
-      colWidth = $(".col-md-4").innerWidth() + md4MarginRight + 2; //330 //2px是col之间的分隔线
-      colInnerWidth = $(".col-md-4").innerWidth() + 1;
-    }
-    let spWidth = (colInnerWidth - DRBOXWIDTH) / 2; //40 两边各自间距(padding-left)
     return {
+      username: "",
+      password: "",
+      checked: true,
       left: 0,
       top: 0,
       currentX: 0,
       currentY: 0,
 
       flag: false,
-
-      col: COL,
-      DRBOXWIDTH: DRBOXWIDTH,
-      colWidth: colWidth,
-      spWidth: spWidth,
-      DRBOXHEIGHT: DRBOXHEIGHT,
-      colHeight: colHeight,
-      spHeight: spHeight,
-      arrDragCount: [totalCol, 0, 0]
+      col: 0,
+      DRBOXWIDTH: 0,
+      colWidth: 0,
+      spWidth: 0,
+      colInnerWidth: 0,
+      DRBOXHEIGHT: 0,
+      colHeight: 0,
+      spHeight: 0,
+      arrDragCount: []
     };
   },
   onChildChanged: function(newState) {
@@ -66,6 +45,7 @@ var MyForm = React.createClass({
     let DRBOXWIDTH = this.state.DRBOXWIDTH;
     let colWidth = this.state.colWidth;
     let spWidth = this.state.spWidth;
+    let colInnerWidth = this.state.colInnerWidth;
     var dBox = ReactDOM.findDOMNode(this.refs.dragBox);
     let DRBOXHEIGHT = this.state.DRBOXHEIGHT;
 
@@ -108,12 +88,10 @@ var MyForm = React.createClass({
       if (this.state.flag == true) {
         draggedFromTopIndex = this.getIndexColByTop(this.delpx(this.state.top));
         draggedToTopIndex = this.getIndexColByTop(this.delpx(top));
-        otherleft = this.delpx(computedStyle.left);
       }
 
-      isMoved = true;
       //倾斜10角度
-      dBox.className = "form-horizontal form rotate10";
+      // dBox.className = "form-horizontal form rotate10";
     }
   },
   countDrag: function() {
@@ -140,12 +118,10 @@ var MyForm = React.createClass({
     return arr;
   },
   delpx: function(str) {
-    if (str)
-      return str.toString().replace("px", "");
+    return str.toString().replace("px", "");
   },
   addpx: function(str) {
-    if (str)
-      return str + "px";
+    return str + "px";
   },
   getIndexColByleft: function(left) {
     let DRBOXWIDTH = this.state.DRBOXWIDTH;
@@ -159,18 +135,10 @@ var MyForm = React.createClass({
   },
   getIndexColByTop: function(top) {
     let colHeight = this.state.colHeight;
-    //此段代码 摘自 上下控制
     for (var i = 0; i < MAXCOL; i++) {
       if (top == colHeight * (i + 1))
         return i;
     }
-  },
-  /*获取一圈下来,最后一个dragbox的id*/
-  getLastNodeID: function() {
-    var dragBoxClassName = this.refs.dragBox.className.replace(" ", ".");
-    dragBoxClassName = "." + dragBoxClassName;
-    var lastNodeID = $(dragBoxClassName)[$(dragBoxClassName).length - 1].parentNode.id;
-    return lastNodeID;
   },
   getByRef: function(wish) {
     let DRBOXWIDTH = this.state.DRBOXWIDTH;
@@ -215,8 +183,8 @@ var MyForm = React.createClass({
         }
       }
     }
-    //正在增加的列
     var IndexCol = this.getIndexColByleft(this.delpx(left));
+    //正在增加的列
     for (let i = 0; i < this.props.col; i++) {
       if (arrDragCount[i] == this.state.arrDragCount[i] + 1 && this.getIndexColByleft(this.delpx(left)) == i) {
         //原先没动的要挪一下位置
@@ -237,32 +205,6 @@ var MyForm = React.createClass({
         }
       }
     }
-    //列内部的变化  交换位置 
-    for (let i = 0; i < this.props.col; i++) {
-      if (arrDragCount[i] == this.state.arrDragCount[i] && this.getIndexColByleft(otherleft) == i && this.getIndexColByleft(this.delpx(this.state.left)) == i && isMoved == true) {
-        //不动的被置换位置
-        if (this.state.flag == false) {
-          for (let j = 0; j < MAXCOL; j++) {
-            for (let k = 0; k < MAXCOL; k++) {
-              if (draggedFromTopIndex == k && (draggedToTopIndex == j) && this.state.top == colHeight * (j + 1) + "px") {
-                top = colHeight * (k + 1) + "px";
-              }
-              //如果是拖到最底下,辨认为是与最底下的一个交换位置
-              if (draggedFromTopIndex == k && draggedToTopIndex >= arrDragCount[i] && this.state.top == colHeight * (j + 1) + "px") {
-                if (j == arrDragCount[i] - 1)
-                  top = colHeight * (k + 1) + "px";
-              }
-            }
-          }
-        } else { //动的要自动插入至贴近最后一个的位置
-          for (let j = 0; j < totalCol; j++) {
-            if (arrDragCount[IndexCol] == j + 1 && draggedToTopIndex >= j)
-              top = colHeight * (j + 1) + "px";
-          }
-        }
-      }
-    }
-
     this.setState({
       flag: false,
       left: left,
@@ -272,66 +214,83 @@ var MyForm = React.createClass({
     dBox.style.left = left;
     dBox.style.top = top;
 
-    if (this.refs.dragBox.parentNode.id == this.getLastNodeID())
-      isMoved = false;
-
     //摆正倾斜10角度
-    dBox.className = "form-horizontal form";
+    //dBox.className = "form-horizontal form";
   },
   componentDidMount: function() {
+    var COL = this.props.col; //分成4栏还是3栏
     const DRBOXWIDTH = $('.controlDiv #content .col-md-9 .col-md-4').width(); //  200; //拖拽框的宽度
     const DRBOXHEIGHT = 100; //拖拽框的高度
 
-    $(".form").css({
-      "width": DRBOXWIDTH + "px",
-      "margin-left": -DRBOXWIDTH + "px",
-      "height": DRBOXHEIGHT + "px",
-      "margin-top": -DRBOXHEIGHT + 50 + "px"
-    });
-    $("#box0 .form").css({
-      "top": "110px",
-      "left": "29%"
-    });
-    $("#box1 .form").css({
-      "top": "220px",
-      "left": "29%"
-    });
-    $("#box2 .form").css({
-      "top": "330px",
-      "left": "29%"
-    });
-    $("#box3 .form").css({
-      "top": "440px",
-      "left": "29%"
-    });
-    $("#box4 .form").css({
-      "top": "550px",
-      "left": "29%"
-    });
-    $("#box5 .form").css({
-      "top": "660px",
-      "left": "29%"
-    });
-    let left = this.getByRef("left");
-    let top = this.getByRef("top");
+    let colWidth = 0; //格子的宽度
+    let colInnerWidth = 0;
+    let md4MarginRight = 0;
+
+    if (COL == 4) {
+      md4MarginRight = $('.controlDiv #content .col-md-9 .col-md-3').css('marginRight');
+      md4MarginRight = Math.round(md4MarginRight.substr(0, md4MarginRight.length - 2));
+      colWidth = $(".col-md-3").innerWidth() + md4MarginRight + 2;
+      colInnerWidth = $(".col-md-3").innerWidth() + 1;
+    } else if (COL == 3) {
+      md4MarginRight = $('.controlDiv #content .col-md-9 .col-md-4').css('marginRight');
+      md4MarginRight = Math.round(md4MarginRight.substr(0, md4MarginRight.length - 2));
+      colWidth = $(".col-md-4").innerWidth() + md4MarginRight + 2; //330 //2px是col之间的分隔线
+      colInnerWidth = $(".col-md-4").innerWidth() + 1;
+    }
+    let spWidth = (colInnerWidth - DRBOXWIDTH) / 2; //40 两边各自间距(padding-left)
+
+    let colHeight = 110;
+    let spHeight = 10;
+
     this.setState({
-      left: left,
-      top: top
-    })
+      col: COL,
+      DRBOXWIDTH: DRBOXWIDTH,
+      colWidth: colWidth,
+      spWidth: spWidth,
+      colInnerWidth: colInnerWidth,
+      DRBOXHEIGHT: DRBOXHEIGHT,
+      colHeight: colHeight,
+      spHeight: spHeight,
+      /*left: "206px",
+      top: "220px",
+      arrDragCount: [5, 0, 0]*/
+    });
     var o = this;
     //
-    //  document.addEventListener('mousedown', function() {
-    document.addEventListener('mousedown', (e) => {
-
-    }, false);
+    //document.addEventListener('mousedown', function() {
     document.addEventListener('mousemove', (e) => {
       o.move(e);
     }, false); /*ES6新特性，箭头函数，需要依赖jsx编译工具才能正确运行*/
     document.addEventListener('mouseup', (e) => {
       o.endDrag(e);
     }, false);
-    // })
-
+    //  })
+    $(".form").css({
+      "width": DRBOXWIDTH + "px",
+      "margin-left": -DRBOXWIDTH + "px",
+      "height": DRBOXHEIGHT + "px",
+      "margin-top": -DRBOXHEIGHT + 50 + "px"
+    });
+    $("#box .form").css({
+      "top": "110px",
+      "left": "29%"
+    });
+    $("#box2 .form").css({
+      "top": "220px",
+      "left": "29%"
+    });
+    $("#box3 .form").css({
+      "top": "330px",
+      "left": "29%"
+    });
+    $("#box4 .form").css({
+      "top": "440px",
+      "left": "29%"
+    });
+    $("#box5 .form").css({
+      "top": "550px",
+      "left": "29%"
+    });
   },
   render: function() {
     return (

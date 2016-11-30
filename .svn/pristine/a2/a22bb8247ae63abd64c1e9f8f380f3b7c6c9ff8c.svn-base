@@ -331,17 +331,6 @@ i {
     width: 200px;
 }
 
-.btn-left{
-    width: 45%;
-    display: inline;
-    margin-right: 5%;
-}
-.btn-right{
-    width: 45%;
-    display: inline;
-    margin-left: 5%;
-}
-
 div.form .rememberMe label {
     display: inline;
 }
@@ -2387,4 +2376,3 @@ input.padding06 {
     font-size: 12px;
 }
 /*   工作台   end        */
-

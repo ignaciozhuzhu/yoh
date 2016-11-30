@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="login">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" type="text/css" media="all" href="../css/daterangepicker-bs3.css" />
+    <link href="../css/main.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" type="text/css" media="all" href="../cssh5-box/daterangepicker.css" /> -->
+    <link href="../img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+
+    <title>牙艺-注册</title>
+</head>
+
+<body class="bodybg">
+
+    <!-- Begin page content -->
+    <div class="container content-middle ">
+        <div class="row">
+            <div class="modal fade dialog-box in show " id="LogUser2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+              <div class="modal-dialog login-bg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title text-center" >欢迎申请牙艺云诊所账号</h4>
+                  </div>
+                  <div class="modal-body">
+                    <!-- 弹出框表格-->
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="clinicName" placeholder="诊所名称"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="clinicAddress" placeholder="诊所地址"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="telephone" class="form-control" id="clinicTelephone" placeholder="诊所电话，如：010-*******"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="clinicFullname" placeholder="联系人姓名"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="telephone" class="form-control" id="clinicMobile" placeholder="联系人电话"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="bd_password" placeholder="验证码"/>
+                        </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="saveBtn">注册</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <script src="../js/lib/jq-sh-bt.js" ></script>
+        <script src="../js/login_bd.js" ></script>
+    </footer>
+
+</body>
+
+</html>
