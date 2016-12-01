@@ -8,6 +8,7 @@ var draggedFromTopIndex = 0;
 var draggedToTopIndex = 0;
 var otherleft = 0;
 var isMoved = false;
+var arrDragCountP = [0, 0, 0];
 var MyForm = React.createClass({
   getInitialState: function() {
     var COL = this.props.col; //分成4栏还是3栏
@@ -32,6 +33,7 @@ var MyForm = React.createClass({
       colInnerWidth = $(".col-md-4").innerWidth() + 1;
     }
     let spWidth = (colInnerWidth - DRBOXWIDTH) / 2; //40 两边各自间距(padding-left)
+    this.getInitialDragArr();
     return {
       left: 0,
       top: 0,
@@ -45,8 +47,12 @@ var MyForm = React.createClass({
       DRBOXHEIGHT: DRBOXHEIGHT,
       colHeight: colHeight,
       spHeight: spHeight,
-      arrDragCount: [totalCol, 0, 0]
+      arrDragCount: arrDragCountP
     };
+  },
+  getInitialDragArr: function() {
+    //获取初始的列分布
+    arrDragCountP[this.props.rank] = arrDragCountP[this.props.rank] + 1;
   },
   onChildChanged: function(newState) {
     /*以下为修改处*/
@@ -272,8 +278,21 @@ var MyForm = React.createClass({
   componentDidMount: function() {
     const DRBOXWIDTH = $('.controlDiv #content .col-md-9 .col-md-4').width(); //  200; //拖拽框的宽度
     const DRBOXHEIGHT = this.state.DRBOXHEIGHT; //拖拽框的高度
-    let left = DRBOXWIDTH + this.state.spWidth;
+    let left;
+    var id = this.refs.dragBox.parentNode.id;
     let colHeight = this.state.colHeight;
+    let index;
+
+    if (this.props.rank === 0) {
+      left = DRBOXWIDTH + this.state.spWidth;
+      index = parseInt(id.replace("boxf", ""));
+    } else if (this.props.rank === 1) {
+      left = DRBOXWIDTH + this.state.spWidth + this.state.colWidth;
+      index = parseInt(id.replace("boxs", ""));
+    } else if (this.props.rank === 2) {
+      left = DRBOXWIDTH + this.state.spWidth + this.state.colWidth * 2;
+      index = parseInt(id.replace("boxt", ""));
+    }
 
     $(".form").css({
       "width": DRBOXWIDTH + "px",
@@ -281,8 +300,6 @@ var MyForm = React.createClass({
       "height": DRBOXHEIGHT + "px",
       "margin-top": -DRBOXHEIGHT + 50 + "px"
     });
-    var id = this.refs.dragBox.parentNode.id;
-    var index = parseInt(id.replace("box", ""));
     id = "#" + id + " .form";
     $(id).css({
       "top": this.addpx(colHeight * (index + 1)),

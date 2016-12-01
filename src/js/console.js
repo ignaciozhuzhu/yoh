@@ -3,23 +3,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {
 	serviceurl,
-	checknull,
 	leftBoxClick,
 	request,
 	re_str
 } from './lib/common.js';
 import {
-	toast
-} from './lib/toast.js';
-import {
 	testLogin
 } from './ajax/user.js';
-import Vld from 'validator';
 import LeftBox from './components/LeftBox.js';
 import TopBox from './components/TopBox.js';
 import {
-	PagingSearch,
-	PagingPN,
 	LoadingBox
 } from './components/Paging.js';
 
@@ -34,70 +27,88 @@ $(document).ready(function() {
 
 var App = React.createClass({
 
+	getInitialState: function() {
+		return {
+			ff: 0
+		}
+	},
+	render2DidMount: function(arr) {
+		for (var i = 0, index = "", j = -1, k = -1, l = -1, c = 0; i < arr.length; i++) {
+			if (arr[i].rank === 0) {
+				index = "f";
+				j++;
+				c = j;
+			} else if (arr[i].rank === 1) {
+				index = "s";
+				k++;
+				c = k;
+			} else if (arr[i].rank === 2) {
+				index = "t";
+				l++;
+				c = l;
+			}
+			$(".col-md-9").append("<div id='box" + index + c + "'></div>")
+			ReactDOM.render(
+				<MyForm
+		          col="3"
+		          name={arr[i].name}
+		          mobile={arr[i].mobile}
+		          doc={arr[i].doc}
+		          time={arr[i].time}
+		          project={arr[i].project}
+		          rank={arr[i].rank} />,
+				document.getElementById('box' + index + c)
+			);
+		}
+	},
 	componentDidMount: function() {
 		$("#loading").hide();
 		$("#loading_end").show();
 
-		ReactDOM.render(
-			<MyForm
-          col="3"
-          name="陈永仁"
-          mobile="18500000000"
-          doc="黄警官"
-          time="18:00-18:30"
-          project="拔牙" />,
-			document.getElementById('box0')
-		);
-		ReactDOM.render(
-			<MyForm
-		          col="3"
-		          name="小王"
-		          mobile="18550000001"
-		          doc="张医生"
-		          time="19:00-18:30"
-		          project="镶牙" />,
-			document.getElementById('box1')
-		);
-		ReactDOM.render(
-			<MyForm
-          col="3"
-          name="小黑"
-          mobile="18550000002"
-          doc="马医生"
-          time="19:00-18:30"
-          project="注牙" />,
-			document.getElementById('box2')
-		);
-		ReactDOM.render(
-			<MyForm
-          col="3"
-          name="小强"
-          mobile="18550000003"
-          doc="赌医生"
-          time="19:00-18:30"
-          project="烂牙" />,
-			document.getElementById('box3')
-		);
-		ReactDOM.render(
-			<MyForm
-          col="3"
-          name="小叶"
-          mobile="18550000004"
-          doc="法医生"
-          time="6:00-8:30"
-          project="输牙" />,
-			document.getElementById('box4')
-		);
-		ReactDOM.render(
-			<MyForm
-          col="3"
-          name="小p"
-          mobile="18550000005"
-          doc="法医生"
-          time="6:00-8:30"
-          project="牙" />,
-			document.getElementById('box5')
-		);
+		var arr = [{
+			"col": 3,
+			"name": "小A",
+			"mobile": "18550000005",
+			"doc": "法医生",
+			"time": "6:00-8:30",
+			"project": "洗牙",
+			"rank": 0
+		}, {
+			"col": 3,
+			"name": "小B",
+			"mobile": "18550000005",
+			"doc": "赌医生",
+			"time": "6:00-8:30",
+			"project": "打牙",
+			"rank": 1
+		}, {
+			"col": 3,
+			"name": "小C",
+			"mobile": "18550000005",
+			"doc": "黑医生",
+			"time": "6:00-8:30",
+			"project": "刷牙",
+			"rank": 1
+		}, {
+			"col": 3,
+			"name": "小D",
+			"mobile": "18550000005",
+			"doc": "蓝医生",
+			"time": "6:00-8:30",
+			"project": "磨牙",
+			"rank": 2
+		}, {
+			"col": 3,
+			"name": "小E",
+			"mobile": "18550000005",
+			"doc": "白医生",
+			"time": "6:00-8:30",
+			"project": "磨牙",
+			"rank": 0
+		}]
+
+		this.render2DidMount(arr);
+
 	},
 	render: function() {
 		return (
@@ -124,18 +135,6 @@ var App = React.createClass({
 												  <div className="col-md-4 text-center myborder">今日预约</div>
 												  <div className="col-md-4 text-center myborder">今日就诊</div>
 												  <div className="col-md-4 text-center myborder">今日回访</div>
-												  <div id="box0">
-												  </div>
-												  <div id="box1">
-												  </div>
-												  <div id="box2">
-												  </div>
-												  <div id="box3">
-												  </div>
-												  <div id="box4">
-												  </div>
-												  <div id="box5">
-												  </div>
 											  </div>
 											  <div className="col-md-3 text-center myborder" style={{backgroundColor:"#ccc"}}>快捷面板</div>
 
