@@ -3,7 +3,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {
 	serviceurl,
-	leftBoxClick
+	leftBoxClick,
+	ipurl
 } from './lib/common.js';
 import {
 	toast
@@ -57,8 +58,18 @@ var UpdatePassword = React.createClass({
 					toast.show(dt.message);
 				} else if (dt.status == "success") {
 					toast.show(dt.message);
-					$('#UpdatePassword').modal('hide')
+					setTimeout(function() {
+						location.href = ipurl + "login.html";
+					}, 2000);
 				}
+				/*console.log(JSON.stringify(dt));
+				if (dt.status == "success") {
+					toast.show("申请成功");
+					
+				} else {
+					toast.show(dt.message);
+					return;
+				}*/
 			},
 			error: function(XMLHttpRequest) {
 				toast.show(XMLHttpRequest.responseJSON.message);

@@ -13,12 +13,12 @@ var MyForm = React.createClass({
     var COL = this.props.col; //分成4栏还是3栏
     const DRBOXWIDTH = $('.controlDiv #content .col-md-9 .col-md-4').width(); //  200; //拖拽框的宽度
     const DRBOXHEIGHT = 100; //拖拽框的高度
-    const spHeight = 10;
 
     let colWidth = 0; //格子的宽度
     let colInnerWidth = 0;
     let md4MarginRight = 0;
-    let colHeight = DRBOXHEIGHT + spHeight;
+    let colHeight = 110;
+    let spHeight = 10;
 
     if (COL == 4) {
       md4MarginRight = $('.controlDiv #content .col-md-9 .col-md-3').css('marginRight');
@@ -37,7 +37,9 @@ var MyForm = React.createClass({
       top: 0,
       currentX: 0,
       currentY: 0,
+
       flag: false,
+
       col: COL,
       DRBOXWIDTH: DRBOXWIDTH,
       colWidth: colWidth,
@@ -94,14 +96,21 @@ var MyForm = React.createClass({
         dBox.style.top = currentTop + "px";
       }
 
-      let top = this.getByRef("top");
-      //以下四个是全局变量
+      let colHeight = this.state.colHeight;
+      let top;
+      let ctop = computedStyle.top.replace("px", "");
+      //上下控制
+      for (let i = 0; i < MAXCOL; i++) {
+        if (ctop >= 0.5 * DRBOXHEIGHT + i * colHeight && ctop < 0.5 * DRBOXHEIGHT + (i + 1) * colHeight)
+          top = colHeight + colHeight * i + "px"; //各个上下之间
+      }
       //判断被抽离的框是从纵列里的第几个拿出来
       if (this.state.flag == true) {
         draggedFromTopIndex = this.getIndexColByTop(this.delpx(this.state.top));
-        draggedToTopIndex = this.getIndexColByTop(top);
+        draggedToTopIndex = this.getIndexColByTop(this.delpx(top));
         otherleft = this.delpx(computedStyle.left);
       }
+
       isMoved = true;
       //倾斜10角度
       dBox.className = "form-horizontal form rotate10";
@@ -158,7 +167,7 @@ var MyForm = React.createClass({
   },
   /*获取一圈下来,最后一个dragbox的id*/
   getLastNodeID: function() {
-    var dragBoxClassName = this.refs.dragBox.className.replace(" ", ".").replace("rotate10", "");
+    var dragBoxClassName = this.refs.dragBox.className.replace(" ", ".");
     dragBoxClassName = "." + dragBoxClassName;
     var lastNodeID = $(dragBoxClassName)[$(dragBoxClassName).length - 1].parentNode.id;
     return lastNodeID;
@@ -170,17 +179,17 @@ var MyForm = React.createClass({
     let DRBOXHEIGHT = this.state.DRBOXHEIGHT;
     let colHeight = this.state.colHeight;
     var computedStyle = document.defaultView.getComputedStyle(ReactDOM.findDOMNode(this.refs.dragBox), null);
-    let cleft = this.delpx(computedStyle.left);
-    let ctop = this.delpx(computedStyle.top);
+    let cleft = computedStyle.left.replace("px", "");
+    let ctop = computedStyle.top.replace("px", "");
     if (wish == "left") { //左右控制
       for (let i = 0; i < this.props.col; i++) {
         if (cleft >= 0.5 * DRBOXWIDTH + i * colWidth && cleft < 0.5 * DRBOXWIDTH + (i + 1) * colWidth)
-          return DRBOXWIDTH + spWidth + colWidth * i; //各个左右之间
+          return DRBOXWIDTH + spWidth + colWidth * i + "px"; //各个左右之间
       }
     } else if (wish == "top") { //上下控制
       for (let i = 0; i < MAXCOL; i++) {
         if (ctop >= 0.5 * DRBOXHEIGHT + i * colHeight && ctop < 0.5 * DRBOXHEIGHT + (i + 1) * colHeight)
-          return colHeight + colHeight * i; //各个上下之间
+          return colHeight + colHeight * i + "px"; //各个上下之间
       }
     }
   },
@@ -188,8 +197,8 @@ var MyForm = React.createClass({
     var dBox = ReactDOM.findDOMNode(this.refs.dragBox);
     let colHeight = this.state.colHeight;
     let arrDragCount = this.countDrag();
-    let left = this.addpx(this.getByRef("left"));
-    let top = this.addpx(this.getByRef("top"));
+    let left = this.getByRef("left");
+    let top = this.getByRef("top");
     //正在减少的列
     for (let i = 0; i < this.props.col; i++) {
       if (arrDragCount[i] == this.state.arrDragCount[i] - 1 && this.getIndexColByleft(this.delpx(this.state.left)) == i) {
@@ -215,15 +224,15 @@ var MyForm = React.createClass({
           for (let j = 0; j < totalCol - 1; j++) {
             if (draggedToTopIndex == j) {
               for (let k = j; k < totalCol - 1; k++) {
-                if (this.state.top == this.addpx(colHeight * (k + 1)))
-                  top = this.addpx(colHeight * (k + 2));
+                if (this.state.top == colHeight * (k + 1) + "px")
+                  top = colHeight * (k + 2) + "px";
               }
             }
           }
         } else { //要自动插入至贴近最后一个的位置
           for (let j = 0; j < totalCol; j++) {
             if (arrDragCount[IndexCol] == j + 1 && draggedToTopIndex >= j)
-              top = this.addpx(colHeight * (j + 1));
+              top = colHeight * (j + 1) + "px";
           }
         }
       }
@@ -271,9 +280,7 @@ var MyForm = React.createClass({
   },
   componentDidMount: function() {
     const DRBOXWIDTH = $('.controlDiv #content .col-md-9 .col-md-4').width(); //  200; //拖拽框的宽度
-    const DRBOXHEIGHT = this.state.DRBOXHEIGHT; //拖拽框的高度
-    let left = DRBOXWIDTH + this.state.spWidth;
-    let colHeight = this.state.colHeight;
+    const DRBOXHEIGHT = 100; //拖拽框的高度
 
     $(".form").css({
       "width": DRBOXWIDTH + "px",
@@ -281,18 +288,42 @@ var MyForm = React.createClass({
       "height": DRBOXHEIGHT + "px",
       "margin-top": -DRBOXHEIGHT + 50 + "px"
     });
-    var id = this.refs.dragBox.parentNode.id;
-    var index = parseInt(id.replace("box", ""));
-    id = "#" + id + " .form";
-    $(id).css({
-      "top": this.addpx(colHeight * (index + 1)),
-      "left": left
+    $("#box0 .form").css({
+      "top": "110px",
+      "left": "29%"
     });
+    $("#box1 .form").css({
+      "top": "220px",
+      "left": "29%"
+    });
+    $("#box2 .form").css({
+      "top": "330px",
+      "left": "29%"
+    });
+    $("#box3 .form").css({
+      "top": "440px",
+      "left": "29%"
+    });
+    $("#box4 .form").css({
+      "top": "550px",
+      "left": "29%"
+    });
+    $("#box5 .form").css({
+      "top": "660px",
+      "left": "29%"
+    });
+    let left = this.getByRef("left");
+    let top = this.getByRef("top");
     this.setState({
-      top: this.addpx(colHeight * (index + 1)),
-      left: left
+      left: left,
+      top: top
     })
     var o = this;
+    //
+    //  document.addEventListener('mousedown', function() {
+    document.addEventListener('mousedown', (e) => {
+
+    }, false);
     document.addEventListener('mousemove', (e) => {
       o.move(e);
     }, false); /*ES6新特性，箭头函数，需要依赖jsx编译工具才能正确运行*/

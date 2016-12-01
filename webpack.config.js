@@ -6,11 +6,11 @@ var commonsPlugin =
 
 module.exports = {
 	entry: {
-		//	"js/login": "./src/js/login.js",
-		//	"js/login_bd": "./src/js/login_bd.js",
+		"js/login": "./src/js/login.js",
+		"js/login_bd": "./src/js/login_bd.js",
 		//	"js/scheduling": "./src/js/scheduling.js",
-		//	"js/manage_clinic": "./src/js/manage_clinic.js",
-		//	"js/reservation_center": "./src/js/reservation_center.js",
+		"js/manage_clinic": "./src/js/manage_clinic.js",
+		"js/reservation_center": "./src/js/reservation_center.js",
 
 		/*"js/dd_doctor": "./src/js/dd_doctor.js",
 		"js/dd_addjob": "./src/js/dd_addjob.js",
