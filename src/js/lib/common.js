@@ -295,3 +295,6 @@ export var unique4 = function(arr) {
 		re = []
 	return re;
 }
+
+//websocket 服务器地址,一般使用nodejs 启动该 service.js
+export var ws = new WebSocket("ws://192.168.2.135:8181");
